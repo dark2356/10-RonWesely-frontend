@@ -53,7 +53,9 @@
 
 # 깃 작업 순서
 0. `git pull origin master` <- 항상 시작 전 / 수시로 최신버전을 받음.
-1. `git branch feature/브랜치명` <- 항상 작업하기 전에 자신의 브랜치 확인
+1. `git branch feature/브랜치명` <- 항상 작업하기 전에 자신의 브랜치 확인 (브랜치 명 : 기능 단위)
+  feature/main
+  feature/navbar
 2. `git pull origin master` 명령어로 최신 코드를 받기
 3. 코드를 작업
 4. 프로젝트 상위 디렉토리로 가서 `git add .` 명령어로 내가 수정한 코드를 git stage로 올림
