@@ -1,0 +1,204 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.Login {
+  height: 100vh;
+  width: 100%;
+  background-image: url(/images/Member/loginbg.png);
+  background-position: 50%;
+  background-size: cover;
+
+  .Login-logo {
+    margin-left: calc(19vw + 192px);
+    margin-top: 64px;
+    margin-bottom: 40px;
+  }
+  .LoginContainer {
+    width: 500px;
+    height: 730px;
+    box-shadow: 3px;
+    background-color: white;
+    margin-left: 19vw;
+
+    .LoginContents {
+      padding: 60px 50px 0;
+
+      .font-bold {
+        font-weight: 400;
+      }
+      .font-bold-light {
+        font-weight: 300;
+      }
+      .font-size {
+        font-size: 46px;
+      }
+      .kakaoSignContainer {
+        background-color: #fee80f;
+        border-radius: 5px;
+        margin-top: 80px;
+      }
+      .emailSignContainer {
+        border: 1px solid #0056b8;
+        margin-top: 10px;
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .signContainer {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+      }
+      .loginIcon {
+        width: 28px;
+        height: 28px;
+      }
+      .signText {
+        color: #0055b8;
+        font-size: 20px;
+      }
+      .KakaoText {
+        font-size: 20px;
+      }
+      .iconRight {
+        width: 25px;
+        height: 10px;
+        transition: transform 0.4s ease-in-out;
+      }
+      .icon-transform {
+        width: 25px;
+        height: 10px;
+        transform: rotate(-180deg);
+        transition: transform 0.4s ease-in-out;
+      }
+    }
+  }
+}
+
+.email-box {
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s ease-in-out 0.5s, opacity 0.5s,
+    height 0.5s ease-in-out;
+}
+
+.email-box-visible {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s ease-in-out 0ms, opacity 1s, height 0.5s ease-in-out;
+}
+
+.div_input-email {
+  width: 400px;
+  height: 48px;
+  border-bottom: 1px solid red;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+.input-email {
+  all: unset;
+  width: 320px;
+  height: 47px;
+}
+.div_input-email_blue {
+  width: 400px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid blue;
+}
+.div_input-pw {
+  width: 400px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-bottom: 1px solid gray;
+  display: none;
+}
+.div_input-pw_visible {
+  width: 400px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-bottom: 1px solid gray;
+  visibility: visible;
+}
+.div_input-pw_blue {
+  width: 400px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-bottom: 1px solid blue;
+}
+.input-pw {
+  all: unset;
+  width: 320px;
+  height: 47px;
+}
+
+.div_btn-Next {
+  all: unset;
+  width: 400px;
+  height: 60px;
+  background-color: #cecece;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 38px;
+}
+
+.div_btn-Next_blue {
+  all: unset;
+  width: 400px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 38px;
+  background-color: blue;
+}
+
+.btn-Next {
+  font-size: 20px;
+  color: white;
+}
+
+.fg-email {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #979797;
+  border-bottom: 1px solid #979797;
+  font-weight: 300px;
+  letter-spacing: -0.04em;
+}
+
+.Check {
+  visibility: hidden;
+}
+
+.Check-visible {
+  visibility: visible;
+}
