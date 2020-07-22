@@ -6,7 +6,7 @@ class SetPresent extends Component {
     return (
       <div className="SetPresent">
         <section className="container">
-          <section className="first">
+          <section className="secition-first">
             <div className="span-container">
               <h3>
                 <strong>건강한 면도 습관</strong>을
@@ -21,7 +21,7 @@ class SetPresent extends Component {
               <span>*한정판매 상품입니다.</span>
             </div>
           </section>
-          <section className="second">
+          <section className="secition-second">
             <img
               alt=""
               className="second-image"
@@ -43,7 +43,7 @@ class SetPresent extends Component {
               </div>
             </div>
           </section>
-          <section className="third">
+          <section className="secition-third">
             <div className="new">
               <div className="new-item">
                 <p>
@@ -67,10 +67,10 @@ class SetPresent extends Component {
               </div>
             </div>
           </section>
-          <section className="forth">
+          <section className="secition-forth">
             <div className="title">
-              <p className="p-first">풍성한 구성</p>{" "}
-              <p className="p-second">을 특별한 가격에 담아낸 선물세트</p>
+              <p className="p">풍성한 구성</p>{" "}
+              <p className="p">을 특별한 가격에 담아낸 선물세트</p>
             </div>
             <div className="content">
               <span className="span-first">
@@ -84,20 +84,20 @@ class SetPresent extends Component {
             </div>
             <div className="price">특별가 29,800원</div>
           </section>
-          <section className="fifth">
-            <div className="first">
+          <section className="secition-fifth">
+            <div className="first-list">
               <div className="first-title">
                 <p>패키지포함 내역</p>
               </div>
               <div className="first-content">
-                <div className="container-first">
+                <div className="container-package">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_shaving_gel/shaving_gel_75.png" />
                   <div className="product-info">
                     <p className="product-name">쉐이빙 젤</p>
                     <p>(여행용 75ml)</p>
                   </div>
                 </div>
-                <div className="container-second">
+                <div className="container-gitft">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_kit/starter_navy.png" />
                   <div className="product-info">
                     <p className="product-name">면도기 세트</p>
@@ -113,7 +113,7 @@ class SetPresent extends Component {
                 </div>
               </div>
             </div>
-            <div className="second">
+            <div className="second-list">
               <div className="second-title">
                 <p> 패키지 내 상품권 포함 내역 </p>
               </div>

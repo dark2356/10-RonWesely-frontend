@@ -16,7 +16,6 @@
     align-items: center;
     justify-content: space-between;
     background-color: white;
-
     opacity: 0.9;
 
     .left {
@@ -42,18 +41,22 @@
       .detail {
         margin-right: 24px;
       }
+
       .review {
         margin-right: 50px;
         color: #cecece;
       }
+
       .price {
         margin-right: 24px;
+
         span {
           margin-right: 8px;
           text-decoration: line-through;
           color: #cecece;
         }
       }
+
       .buy-button {
         width: 140px;
         height: 50px;
@@ -72,6 +75,7 @@
           &:hover {
             cursor: pointer;
           }
+
           &:focus {
             outline: none;
           }
