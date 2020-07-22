@@ -90,21 +90,21 @@ class SetPresent extends Component {
                 <p>패키지포함 내역</p>
               </div>
               <div className="first_content">
-                <div className="container-1">
+                <div className="container-first">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_shaving_gel/shaving_gel_75.png" />
                   <div className="product-info">
                     <p className="product-name">쉐이빙 젤</p>
                     <p>(여행용 75ml)</p>
                   </div>
                 </div>
-                <div className="container-2">
+                <div className="container-second">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_kit/starter_navy.png" />
                   <div className="product-info">
                     <p className="product-name">면도기 세트</p>
                     <p>(면도기+날2입)</p>
                   </div>
                 </div>
-                <div className="container-3">
+                <div className="container-third">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_aftershaveing/after_shaving_gel_oily_30.png" />
                   <div className="product-info">
                     <p className="product-name">애프터 쉐이브</p>
@@ -118,21 +118,21 @@ class SetPresent extends Component {
                 <p> 패키지 내 상품권 포함 내역 </p>
               </div>
               <div className="first_content">
-                <div className="container-1">
+                <div className="container-first">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_shaving_gel/shaving_gel_75.png" />
                   <div className="product-info">
                     <p className="product-name">쉐이빙 젤</p>
                     <p>(여행용 75ml)</p>
                   </div>
                 </div>
-                <div className="container-2">
+                <div className="container-second">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/blade/refill_blade.png" />
                   <div className="product-info">
                     <p className="product-name">리필 면도날</p>
                     <p>(4입)</p>
                   </div>
                 </div>
-                <div className="container-3">
+                <div className="container-third">
                   <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_aftershaveing/after_shaving_gel_oily_30.png" />
                   <div className="product-info">
                     <p className="product-name">애프터 쉐이브</p>
