@@ -11,37 +11,34 @@ body,
   background-image: url(/images/Member/loginbg.png);
   background-position: 50%;
   background-size: cover;
-
-  .Login-logo {
+  .img_login-logo {
     margin-left: calc(19vw + 192px);
     margin-top: 64px;
     margin-bottom: 40px;
   }
-  .LoginContainer {
+  .div_login-container {
     width: 500px;
     height: 730px;
     box-shadow: 3px;
     background-color: white;
     margin-left: 19vw;
-
-    .LoginContents {
+    .div_login-contents {
       padding: 60px 50px 0;
-
-      .font-bold {
+      .div_font-bold {
         font-weight: 400;
       }
-      .font-bold-light {
+      .div_font-bold-light {
         font-weight: 300;
       }
-      .font-size {
+      .div_font-size {
         font-size: 46px;
       }
-      .kakaoSignContainer {
+      .div_kakaosign-container {
         background-color: #fee80f;
         border-radius: 5px;
         margin-top: 80px;
       }
-      .emailSignContainer {
+      .div_emailSign-container {
         border: 1px solid #0056b8;
         margin-top: 10px;
         border-radius: 5px;
@@ -50,7 +47,7 @@ body,
           cursor: pointer;
         }
       }
-      .signContainer {
+      .div_sign-container {
         width: 100%;
         height: 60px;
         display: flex;
@@ -58,147 +55,139 @@ body,
         align-items: center;
         padding: 0 25px;
       }
-      .loginIcon {
+      .div_login-icon {
         width: 28px;
         height: 28px;
       }
-      .signText {
+      .div_signText {
         color: #0055b8;
         font-size: 20px;
       }
-      .KakaoText {
+      .div_kakao-text {
         font-size: 20px;
       }
-      .iconRight {
+      .div_icon-right {
         width: 25px;
         height: 10px;
         transition: transform 0.4s ease-in-out;
       }
-      .icon-transform {
+      .div_icon-transform {
         width: 25px;
         height: 10px;
         transform: rotate(-180deg);
         transition: transform 0.4s ease-in-out;
       }
     }
+    .div_email-box {
+      height: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s ease-in-out 0.5s, opacity 0.5s,
+        height 0.5s ease-in-out;
+    }
+    .div_email-box-visible {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s ease-in-out 0ms, opacity 1s,
+        height 0.5s ease-in-out;
+    }
+    .div_input-email-container {
+      width: 400px;
+      height: 48px;
+      border-bottom: 1px solid red;
+      display: flex;
+      margin-top: 10px;
+      justify-content: space-between;
+    }
+    .div_input_email {
+      all: unset;
+      width: 320px;
+      height: 47px;
+    }
+    .div_input-email-container-blue {
+      width: 400px;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid blue;
+    }
+    .div_input-pw-container {
+      width: 400px;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      border-bottom: 1px solid gray;
+      display: none;
+    }
+    .div_input-pw-container-visible {
+      width: 400px;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      border-bottom: 1px solid gray;
+      visibility: visible;
+    }
+    .div_input-pw-container-blue {
+      width: 400px;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      border-bottom: 1px solid blue;
+    }
+    .div_input-pw {
+      all: unset;
+      width: 320px;
+      height: 47px;
+    }
+    .img_check {
+      visibility: hidden;
+    }
+    .img_check-visible {
+      visibility: visible;
+    }
+    .div_btn-Next-container {
+      all: unset;
+      width: 400px;
+      height: 60px;
+      background-color: #cecece;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 38px;
+    }
+    .div_btn-Next_container-blue {
+      all: unset;
+      width: 400px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 38px;
+      background-color: blue;
+    }
+    .div_btn-Next {
+      font-size: 20px;
+      color: white;
+    }
+    .div_fg-email {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #979797;
+      border-bottom: 1px solid #979797;
+      font-weight: 300px;
+      letter-spacing: -0.04em;
+    }
   }
-}
-
-.email-box {
-  height: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s ease-in-out 0.5s, opacity 0.5s,
-    height 0.5s ease-in-out;
-}
-
-.email-box-visible {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s ease-in-out 0ms, opacity 1s, height 0.5s ease-in-out;
-}
-
-.div_input-email {
-  width: 400px;
-  height: 48px;
-  border-bottom: 1px solid red;
-  display: flex;
-  margin-top: 10px;
-  justify-content: space-between;
-}
-.input-email {
-  all: unset;
-  width: 320px;
-  height: 47px;
-}
-.div_input-email_blue {
-  width: 400px;
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid blue;
-}
-.div_input-pw {
-  width: 400px;
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  border-bottom: 1px solid gray;
-  display: none;
-}
-.div_input-pw_visible {
-  width: 400px;
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  border-bottom: 1px solid gray;
-  visibility: visible;
-}
-.div_input-pw_blue {
-  width: 400px;
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  border-bottom: 1px solid blue;
-}
-.input-pw {
-  all: unset;
-  width: 320px;
-  height: 47px;
-}
-
-.div_btn-Next {
-  all: unset;
-  width: 400px;
-  height: 60px;
-  background-color: #cecece;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 38px;
-}
-
-.div_btn-Next_blue {
-  all: unset;
-  width: 400px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 38px;
-  background-color: blue;
-}
-
-.btn-Next {
-  font-size: 20px;
-  color: white;
-}
-
-.fg-email {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #979797;
-  border-bottom: 1px solid #979797;
-  font-weight: 300px;
-  letter-spacing: -0.04em;
-}
-
-.Check {
-  visibility: hidden;
-}
-
-.Check-visible {
-  visibility: visible;
 }
