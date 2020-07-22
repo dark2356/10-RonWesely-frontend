@@ -1,0 +1,294 @@
+.entire-body {
+  width: 100vw;
+  min-height: 100vh;
+
+  .nav_test {
+    height: 88px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .section_bulk-purchase-main {
+    background-image: url("https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_main.png");
+    height: 800px;
+    margin-bottom: 180px;
+    background-position-x: center;
+    background-size: cover;
+
+    .div_bulk-purchase-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 50px;
+      color: #fff;
+      text-align: left;
+
+      .h2_bulk-purchase-title {
+        margin-bottom: 40px;
+        font-size: 48px;
+        letter-spacing: -0.06em;
+        line-height: 130%;
+      }
+      .p_bulk-purchase-value {
+        margin-bottom: 85px;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        line-height: 160%;
+      }
+      .span_bulk-purchase-sub {
+        font-size: 16px;
+        letter-spacing: -0.04em;
+        line-height: 160%;
+      }
+    }
+  }
+
+  .section_product-wrapper {
+    display: flex;
+    position: relative;
+    max-width: 1420px;
+    margin: 0 auto 120px;
+
+    .img_product-image {
+      margin-right: 4.042%;
+      width: 50%;
+    }
+
+    .div_product-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 25px;
+
+      .div_title-wrapper {
+        display: flex;
+        flex-direction: column;
+        position: static;
+
+        .h2_product-title {
+          font-size: 38px;
+          letter-spacing: -0.06em;
+          line-height: 140%;
+          color: #1e314a;
+        }
+
+        .span_product-sub-title {
+          font-size: 18px;
+          line-height: 130%;
+          letter-spacing: -0.06em;
+          color: #0055b8;
+        }
+      }
+
+      .ul_option-list-wrapper {
+        padding: 45px 0 0;
+        list-style: none;
+
+        .li_option-item {
+          display: flex;
+          align-items: center;
+          width: 400px;
+          max-width: 400px;
+          height: 60px;
+          margin-bottom: 10px;
+          padding: 0 20px;
+          border: 1px solid #ebebeb;
+          border-radius: 4px;
+          cursor: pointer;
+
+          .div_item-text-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+
+            .div_flex-left {
+              display: flex;
+              align-items: center;
+
+              .div_product-option-radio {
+                width: 20px;
+                height: 20px;
+                margin: 0 16px 0 0;
+                border-radius: 50%;
+                border: 1px solid #cecece;
+                cursor: pointer;
+              }
+
+              .span_item-title {
+                font-size: 16px;
+                margin-right: 6px;
+                line-height: 110%;
+                letter-spacing: -0.06em;
+                color: #0055b8;
+              }
+
+              .div_discount-rate-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 21px;
+                padding: 0 9px;
+                border: 1px solid #0055b8;
+                border-radius: 2px;
+
+                .span_discount-rate {
+                  font-size: 12px;
+                  line-height: 140%;
+                  letter-spacing: -0.04em;
+                  color: #0055b8;
+                }
+              }
+            }
+
+            .span_item-discount-price {
+              font-size: 16px;
+              line-height: 140%;
+              letter-spacing: -0.04em;
+              color: #0055b8;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer-wrapper {
+    width: 100%;
+    height: 304px;
+    // right: calc((100% - 980px)/2*-1); 대기
+    bottom: 0;
+    left: 0;
+    padding: 0 30px;
+    background: #1b2a38;
+    font-weight: 300;
+    line-height: 140%;
+    color: #cecece;
+
+    .footer-header {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #56636f;
+
+      .header-content-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1140px;
+        height: 50px;
+
+        .header-flex-left {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 50px;
+
+          .header-left-text {
+            margin-right: 10px;
+            font-size: 12px;
+            letter-spacing: -0.04em;
+            cursor: pointer;
+          }
+        }
+        .header-flex-right {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: auto;
+          height: 50px;
+          font-size: 14px;
+
+          .header-title-div_login {
+            margin-right: 20px;
+
+            letter-spacing: -0.06em;
+
+            .header-title-login {
+              cursor: pointer;
+            }
+          }
+
+          .header-title-link {
+            cursor: pointer;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      margin-top: 26px;
+
+      .pc-flex {
+        max-width: 1140px;
+        width: 100%;
+
+        .pc-footer {
+          display: flex;
+          justify-content: space-between;
+
+          .div_info {
+            margin-top: 10px;
+            padding-bottom: 20px;
+
+            p {
+              font-weight: 300;
+              font-size: 12px;
+              line-height: 180%;
+              letter-spacing: -0.04em;
+            }
+
+            .p_info-bold {
+              font-weight: 400;
+            }
+
+            .p_info-text-margin-top {
+              margin-top: 10px;
+
+              span {
+                border-bottom: 1px solid #cecece;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .sns-logo {
+            display: flex;
+
+            .facebook {
+              text-align: center;
+              width: 46px;
+              img {
+                cursor: pointer;
+              }
+            }
+
+            .instagram {
+              text-align: center;
+              width: 46px;
+              img {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .copyright {
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 140%;
+          letter-spacing: -0.06em;
+
+          .text-bold {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
