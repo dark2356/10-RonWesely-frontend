@@ -3,6 +3,7 @@ import "./Nav.scss";
 
 class Nav extends Component {
   render() {
+    const { changeSideBarValid } = this.props;
     return (
       <div className="ProductNav">
         <div className="inner">
@@ -20,7 +21,7 @@ class Nav extends Component {
               {/*api 연결 필요*/}
             </div>
             <div className="buy-button">
-              <button>구매하기</button>
+              <button onClick={changeSideBarValid}>구매하기</button>
             </div>
           </div>
         </div>

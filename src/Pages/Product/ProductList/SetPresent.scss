@@ -1,12 +1,12 @@
 .SetPresent {
-  .section_container {
+  .container {
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
 
-    .section_first {
+    .first {
       width: 100%;
       max-height: 852px;
       height: calc(100vh - 68px);
@@ -16,7 +16,7 @@
         no-repeat center;
       background-size: cover;
 
-      .section_span-container {
+      .span-container {
         width: 1000px;
         height: 500px;
         margin: 0 20%;
@@ -49,7 +49,7 @@
         }
       }
     }
-    .section_second {
+    .second {
       max-height: 820px;
       height: calc(100vh - 150px);
       display: flex;
@@ -83,7 +83,7 @@
         }
       }
     }
-    .section_third {
+    .third {
       height: 300px;
       margin-top: 150px;
       display: flex;
@@ -123,7 +123,7 @@
         }
       }
     }
-    .section_forth {
+    .forth {
       width: 100%;
       height: 350px;
       margin-top: 100px;
@@ -141,7 +141,7 @@
         justify-content: center;
         font-size: 35px;
 
-        .p_first {
+        .p-first {
           font-weight: bold;
         }
       }
@@ -153,7 +153,7 @@
         flex-direction: column;
         font-size: 15px;
 
-        .span_first {
+        .span-first {
           padding-top: 50px;
         }
       }
@@ -168,7 +168,7 @@
         font-weight: bold;
       }
     }
-    .section_fifth {
+    .fifth {
       width: 100%;
       $fifth_height: 880px;
       height: $fifth_height;
@@ -177,7 +177,7 @@
       .first {
         height: $fifth_height/2;
 
-        .first_title {
+        .first-title {
           height: 100px;
           display: flex;
           justify-content: center;
@@ -187,7 +187,7 @@
             color: #0055b8;
           }
         }
-        .first_content {
+        .first-content {
           display: flex;
           justify-content: center;
           .container-first {
@@ -270,7 +270,7 @@
       .second {
         height: $fifth_height/2;
 
-        .second_title {
+        .second-title {
           height: 100px;
           display: flex;
           justify-content: center;
@@ -280,7 +280,7 @@
             color: #0055b8;
           }
         }
-        .first_content {
+        .first-content {
           display: flex;
           justify-content: center;
           .container-first {
@@ -361,5 +361,8 @@
         }
       }
     }
+  }
+  .section_stop {
+    position: fixed;
   }
 }

@@ -1,8 +1,11 @@
 .ProductNav {
   height: 70px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0px;
 
   .inner {
     width: 100%;
@@ -12,8 +15,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
     background-color: white;
+
     opacity: 0.9;
 
     .left {
