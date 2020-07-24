@@ -8,9 +8,10 @@ class Login extends Component {
     this.state = {
       userid: "",
       password: "",
-      displayactive: false,
+      displayActive: false,
     };
   }
+
   goToSign = () => {
     this.props.history.push("/signup");
   };
@@ -30,9 +31,10 @@ class Login extends Component {
         this.props.history.push("/main");
       });
   };
+
   displayhandler = () => {
     this.setState({
-      displayactive: !this.state.displayactive,
+      displayActive: !this.state.displayActive,
     });
   };
 
@@ -42,9 +44,7 @@ class Login extends Component {
 
   render() {
     const { userid, password } = this.state;
-    const emailvalid =
-      userid.includes("@") && userid.includes(".co") && userid.length >= 10;
-    const pwdvalid = password.length >= 6;
+
     return (
       <div className="Login">
         <img
@@ -83,7 +83,7 @@ class Login extends Component {
               </div>
               <img
                 className={
-                  this.state.displayactive ? "icon-right" : "icon-transform"
+                  this.state.displayActive ? "icon-right" : "icon-transform"
                 }
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/arrow/arrowDownPurple.svg"
               />
@@ -91,12 +91,14 @@ class Login extends Component {
           </div>
           <div
             className={
-              this.state.displayactive ? "email-box-none" : "email-box-visible"
+              this.state.displayActive ? "email-box-none" : "email-box-visible"
             }
           >
             <div
               className={
-                emailvalid
+                userid.includes("@") &&
+                userid.includes(".co") &&
+                userid.length >= 10
                   ? "email-input-container-blue"
                   : "email-input-container"
               }
@@ -109,13 +111,21 @@ class Login extends Component {
                 onChange={this.inputHandler}
               />
               <img
-                className={emailvalid ? "check-img-visible" : "check-img-none"}
+                className={
+                  userid.includes("@") &&
+                  userid.includes(".co") &&
+                  userid.length >= 10
+                    ? "check-img-visible"
+                    : "check-img-none"
+                }
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg"
               />
             </div>
             <div
               className={
-                pwdvalid ? "pw-input-container-blue" : "pw-input-container"
+                password.length >= 6
+                  ? "pw-input-container-blue"
+                  : "pw-input-container"
               }
             >
               <input
@@ -126,13 +136,18 @@ class Login extends Component {
                 onChange={this.inputHandler}
               />
               <img
-                className={pwdvalid ? "check-img-visible" : "check-img-none"}
+                className={
+                  password.length >= 6 ? "check-img-visible" : "check-img-none"
+                }
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg"
               />
             </div>
             <button
               className={
-                emailvalid && pwdvalid
+                userid.includes("@") &&
+                userid.includes(".co") &&
+                userid.length >= 10 &&
+                password.length >= 6
                   ? "login-btn-container-blue"
                   : "login-btn-container"
               }
