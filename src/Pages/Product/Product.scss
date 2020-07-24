@@ -2,9 +2,16 @@ $test_border1: 1px solid black;
 $base-width: 1920px;
 $base-height: 1000px;
 
-.Product {
+.Product-relative {
   top: 10px;
-  position: relative;
+  position: relative; //사이드바가  없으면 relative
+  //position: fixed;  사이드바가 나오면 fix해야함
+}
+
+.Product-fix {
+  top: 10px;
+  //position: relative; //사이드바가  없으면 relative
+  position: fixed; //사이드바가 나오면 fix해야함
 }
 
 .Product-none {

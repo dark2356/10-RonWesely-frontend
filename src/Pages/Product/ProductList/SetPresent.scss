@@ -99,6 +99,7 @@
           p {
             font-size: 25px;
             margin-bottom: 50px;
+            opacity: 1;
           }
         }
         .new-icon {
@@ -111,6 +112,10 @@
           img {
             margin-right: 50px;
             margin-left: 50px;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }

@@ -2,7 +2,30 @@ import React, { Component } from "react";
 import "./SetPresent.scss";
 
 class SetPresent extends Component {
+  state = {
+    newKey: 1,
+  };
+  handleChangeNew = (id) => {
+    this.setState({
+      newKey: id,
+    });
+  };
   render() {
+    let new_value = "";
+    switch (this.state.newKey) {
+      case 1:
+        new_value =
+          "독점화된 면도기 시장을 '가성비'로 뚫은 브랜드, 시장을 정확히파고 들었다.";
+        break;
+      case 2:
+        new_value =
+          "다이아몬드 코팅된 독일산5중 날로서 우수한 절삭력을 보여주는데도 1만원 이하다.";
+        break;
+      case 3:
+        new_value =
+          "뛰어난 절삭력, 간결한 구성과 효율적인 디자인이 만들어내는만족감";
+        break;
+    }
     return (
       <div className="SetPresent">
         <section className="container">
@@ -46,24 +69,21 @@ class SetPresent extends Component {
           <section className="secition-third">
             <div className="new">
               <div className="new-item">
-                <p>
-                  다이아몬드 코팅된 독일산5중날로서 우수한 절삭력을 보여주는데도
-                  1만원 이하다.{" "}
-                </p>
-                {/* 보류 나중에 작업때 필요 
-                <p>
-                    독점화된 면도기 시장을 '가성비'로 뚫은 브랜드, 시장을 정확히
-                    파고 들었다.
-                  </p>
-                  <p>
-                    뛰어난 절삭력, 간결한 구성과 효율적인 디자인이 만들어내는
-                    만족감
-                  </p> */}
+                <p>{new_value}</p>
               </div>
               <div className="new-icon">
-                <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/news/news_1.svg" />
-                <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/news/news_2.svg" />
-                <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/news/news_3.svg" />
+                <img
+                  onClick={() => this.handleChangeNew(1)}
+                  src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/news/news_1.svg"
+                />
+                <img
+                  onClick={() => this.handleChangeNew(2)}
+                  src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/news/news_2.svg"
+                />
+                <img
+                  onClick={() => this.handleChangeNew(3)}
+                  src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/news/news_3.svg"
+                />
               </div>
             </div>
           </section>

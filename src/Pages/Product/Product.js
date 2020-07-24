@@ -9,9 +9,15 @@ class Product extends Component {
     super();
     this.state = {
       sideBarValid: false,
+      list: [
+        {
+          title: "선물세트",
+          titleSub: "면도용품+기프트 카드",
+          price: "8,900원",
+        },
+      ],
     };
   }
-
   changeSideBarValidInSideBar = (check) => {
     console.log(check);
     this.setState({
@@ -25,14 +31,26 @@ class Product extends Component {
     });
   };
   render() {
+    const position = { position: "fixed" };
     return (
       <>
         <SideBar
           sideBarValid={this.state.sideBarValid}
           changeSideBarValid={this.changeSideBarValidInSideBar}
         />
-        <div className="Product">
-          <Nav changeSideBarValid={this.changeSideBarValidInProduct} />
+        <div
+          className={
+            this.state.sideBarValid ? "Product-fix" : "Product-relative"
+          }
+        >
+          {this.state.list.map((data) => (
+            <Nav
+              key={data.title}
+              data={data}
+              changeSideBarValid={this.changeSideBarValidInProduct}
+            />
+          ))}
+
           <SetPresent />
         </div>
         {this.state.sideBarValid ? <div className="Product-none"></div> : null}
