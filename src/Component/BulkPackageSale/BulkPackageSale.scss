@@ -1,0 +1,49 @@
+.BulkPackageSale {
+  width: 100vw;
+  min-height: 100vh;
+
+  .test {
+    height: 88px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .bulk-purchase-main {
+    background-image: url("https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_main.png");
+    height: 800px;
+    margin-bottom: 180px;
+    background-position-x: center;
+    background-size: cover;
+
+    .bulk-purchase-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 50px;
+      color: #fff;
+      text-align: left;
+
+      .bulk-purchase-title {
+        margin-bottom: 40px;
+        font-size: 48px;
+        letter-spacing: -0.06em;
+        line-height: 130%;
+      }
+      .bulk-purchase-value {
+        margin-bottom: 85px;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        line-height: 160%;
+      }
+      .bulk-purchase-sub {
+        font-size: 16px;
+        letter-spacing: -0.04em;
+        line-height: 160%;
+      }
+    }
+  }
+}
