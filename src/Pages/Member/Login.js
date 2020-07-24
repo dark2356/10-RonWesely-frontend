@@ -1,32 +1,33 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "./Login.scss";
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      pw: "",
-      id: "1",
-      username: "Bret",
+      userid: "",
+      password: "",
       displayactive: false,
-      btnactive: false,
     };
   }
+  goToSign = () => {
+    this.props.history.push("/signup");
+  };
 
   handlelogin = (e) => {
-    fetch("https://jsonplaceholder.typicode.com/todos/1", {
+    fetch("http://10.58.6.255:8000/users/SignIn", {
       method: "POST",
       body: JSON.stringify({
-        email: this.state.id,
-        pw: this.state.pw,
+        userid: this.state.userid,
+        password: this.state.password,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         localStorage.setItem("access_token", res.access_token);
-        this.props.history.push("/");
-        console.log(localStorage);
+        this.props.history.push("/main");
       });
   };
   displayhandler = () => {
@@ -34,68 +35,55 @@ class Login extends Component {
       displayactive: !this.state.displayactive,
     });
   };
-  btnhandler = () => {
-    this.setState({
-      btnactive: !this.state.btnactive,
-    });
+
+  inputHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
-  EmailInput = (e) => {
-    this.setState({
-      email: e.target.value,
-    });
-  };
-  PwInput = (e) => {
-    this.setState({
-      pw: e.target.value,
-    });
-  };
+
   render() {
-    const { email, pw } = this.state;
-    const emails =
-      email.includes("@") && email.includes(".") && email.length >= 10;
-    const pwd = pw.length >= 6;
-    const displayactive = !this.state.displayactive;
+    const { userid, password } = this.state;
+    const emailvalid =
+      userid.includes("@") && userid.includes(".co") && userid.length >= 10;
+    const pwdvalid = password.length >= 6;
     return (
       <div className="Login">
         <img
-          className="img_login-logo"
+          className="login-logo"
           src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
         />
-        <div className="div_login-container">
-          <div className="div_login-contents">
+        <div className="login-container">
+          <div className="login-contents">
             <p>
-              <strong className="div_font-bold div_font-size">
+              <strong className="font-bold font-size-46">
                 로그인 및 회원가입
               </strong>
-              <span className="div_font-bold-light div_font-size">을</span>
-              <div className="div_font-bold-light div_font-size">
-                시작합니다
-              </div>
+              <span className="font-bold-light font-size-46">을</span>
+              <div className="font-bold-light font-size-46">시작합니다</div>
             </p>
-            <div className="div_kakaosign-container div_sign-container">
+            <div className="kaka-start-btn start-btn">
               <img
-                className="div_login-icon"
+                className="login-icon"
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/signIn/signInKakao.png"
               />
-              <div className="div_kakao-text div_font-bold-light">
-                카카오로 <span className="div_font-bold">간편시작</span>
+              <div className="kakao-start-btn-text font-bold-light">
+                카카오로 <span className="font-bold">간편시작</span>
               </div>
-              <div className="div_icon-right" />
+              <div className="icon-right" />
             </div>
             <div
-              className="div_emailSign-container div_sign-container"
+              className="email-start-btn start-btn"
               onClick={this.displayhandler}
             >
               <img
-                className="div_login-icon"
+                className="login-icon"
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/signIn/signInEmail.png"
               />
-              <div className="div_signText div_font-bold-light">
+              <div className="email-start-btn-text font-bold-light">
                 이메일로 시작하기
               </div>
               <img
                 className={
-                  displayactive ? "div_icon-right" : "div_icon-transform"
+                  this.state.displayactive ? "icon-right" : "icon-transform"
                 }
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/arrow/arrowDownPurple.svg"
               />
@@ -103,57 +91,58 @@ class Login extends Component {
           </div>
           <div
             className={
-              displayactive ? "div_email-box" : "div_email-box-visible"
+              this.state.displayactive ? "email-box-none" : "email-box-visible"
             }
           >
             <div
               className={
-                emails
-                  ? "div_input-email-container-blue"
-                  : "div_input-email-container"
+                emailvalid
+                  ? "email-input-container-blue"
+                  : "email-input-container"
               }
             >
               <input
                 type="text"
                 placeholder="이메일"
-                className="div_input_email"
-                onChange={this.EmailInput}
+                className="email-input"
+                name="userid"
+                onChange={this.inputHandler}
               />
               <img
-                className={emails ? "img_check-visible" : "img_check"}
+                className={emailvalid ? "check-img-visible" : "check-img-none"}
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg"
               />
             </div>
             <div
               className={
-                !this.state.btnactive
-                  ? "div_input-pw-container-visible"
-                  : "div_input-pw-container"
+                pwdvalid ? "pw-input-container-blue" : "pw-input-container"
               }
             >
               <input
                 type="text"
                 placeholder="비밀번호 (6자 이상)"
-                className="div_input-pw"
-                onChange={this.PwInput}
+                className="pw-input"
+                name="password"
+                onChange={this.inputHandler}
               />
               <img
-                className={pwd ? "img_check-visible" : "img_check"}
+                className={pwdvalid ? "check-img-visible" : "check-img-none"}
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg"
               />
             </div>
             <button
               className={
-                emails
-                  ? "div_btn-Next_container-blue"
-                  : "div_btn-Next-container"
+                emailvalid && pwdvalid
+                  ? "login-btn-container-blue"
+                  : "login-btn-container"
               }
-              onClick={this.btnhandler}
               onClick={this.handlelogin}
             >
-              <p className="div_btn-Next">다음</p>
+              <p className="login-btn-text">로그인</p>
             </button>
-            <div className="div_fg-email">이메일 주소가 기억나지 않아요 </div>
+            <div className="goto-Signup" onClick={this.goToSign}>
+              회원가입
+            </div>
           </div>
         </div>
       </div>
@@ -161,4 +150,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
