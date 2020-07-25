@@ -1,0 +1,194 @@
+.Login {
+  height: 100vh;
+  width: 100%;
+  background-image: url(/images/Member/loginbg.png);
+  background-position: 50%;
+  background-size: cover;
+
+  .login-logo {
+    margin-left: calc(19vw + 192px);
+    margin-top: 64px;
+    margin-bottom: 40px;
+  }
+
+  .login-container {
+    width: 500px;
+    height: 730px;
+    margin-left: 19vw;
+    box-shadow: 3px;
+    background-color: white;
+
+    .login-contents {
+      padding: 60px 50px 0;
+
+      .font-bold {
+        font-weight: 400;
+      }
+
+      .font-bold-light {
+        font-weight: 300;
+      }
+
+      .font-size-46 {
+        font-size: 46px;
+      }
+
+      .kaka-start-btn {
+        border-radius: 5px;
+        margin-top: 80px;
+        background-color: #fee80f;
+      }
+
+      .email-start-btn {
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #0056b8;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .start-btn {
+        width: 100%;
+        height: 60px;
+        padding: 0 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .login-icon {
+        width: 28px;
+        height: 28px;
+      }
+
+      .email-start-btn-text {
+        color: #0055b8;
+        font-size: 20px;
+      }
+
+      .kakao-start-btn-text {
+        font-size: 20px;
+      }
+
+      .icon-right {
+        width: 25px;
+        height: 10px;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .icon-transform {
+        width: 25px;
+        height: 10px;
+        transform: rotate(-180deg);
+        transition: transform 0.4s ease-in-out;
+      }
+    }
+
+    .email-box-visible {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s ease-in-out 0ms, opacity 1s,
+        height 0.5s ease-in-out;
+    }
+    .email-box-none {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      display: none;
+      opacity: 1;
+      transition: visibility 0s ease-in-out 0ms, opacity 1s,
+        height 0.5s ease-in-out;
+    }
+    .email-input-container {
+      width: 400px;
+      height: 48px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid gray;
+    }
+    .email-input-container-blue {
+      width: 400px;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid blue;
+    }
+    .email-input {
+      all: unset;
+      width: 320px;
+      height: 47px;
+    }
+    .pw-input-container {
+      width: 400px;
+      height: 48px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid gray;
+    }
+    .pw-input-container-blue {
+      width: 400px;
+      height: 48px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid blue;
+    }
+    .pw-input {
+      all: unset;
+      width: 320px;
+      height: 47px;
+    }
+    .check-img-none {
+      visibility: hidden;
+    }
+    .check-img-visible {
+      visibility: visible;
+    }
+    .login-btn-container {
+      all: unset;
+      width: 400px;
+      height: 60px;
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      background-color: #cecece;
+    }
+    .login-btn-container-blue {
+      all: unset;
+      width: 400px;
+      height: 60px;
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: auto;
+      background-color: blue;
+      cursor: pointer;
+    }
+    .login-btn {
+      font-size: 20px;
+      color: white;
+    }
+    .goto-Signup {
+      margin-top: 15px;
+      font-size: 15px;
+      color: #979797;
+      font-weight: 300px;
+      letter-spacing: -0.04em;
+      border-bottom: 1px solid #979797;
+      cursor: pointer;
+    }
+  }
+}
