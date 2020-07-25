@@ -12,6 +12,7 @@ class Nav extends Component {
   }
 
   handleProductNav = () => {
+    console.log("??");
     this.setState({
       subNavActive: !this.state.subNavActive,
     });

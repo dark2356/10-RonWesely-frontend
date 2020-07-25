@@ -1,20 +1,22 @@
 .Nav {
-  .visible {
-    /* 애니메이션 이름 */
-    animation: 1s alternate forwards fadein;
-  }
-  .unvisible {
-    /* 애니메이션 이름 */
-    animation: 1s alternate forwards fadeout;
-  }
+  // .visible {
+  //   /* 애니메이션 이름 */
+  //   animation: 0.5s alternate forwards fadein;
+  // }
+  // .unvisible {
+  //   /* 애니메이션 이름 */
+  //   animation: 0.5s alternate forwards fadeout;
+  // }
+
+  width: 100%;
+  height: 88px;
+  background-color: #ececec;
+  border-bottom: 0;
+  top: 0px;
+  position: fixed;
+  transition: height 0.2s ease-in-out;
 
   .header-wrapper-subscription-bg-active {
-    height: 88px;
-    background-color: #ececec;
-    border-bottom: 0;
-    position: relative;
-    transition: height 0.2s ease-in-out;
-
     .scroll-wrapper-inserted {
       display: block;
       position: absolute;
@@ -131,7 +133,10 @@
               }
               .items {
                 margin-bottom: 0;
-                cursor: pointer;
+
+                &:hover {
+                  cursor: pointer;
+                }
 
                 .link {
                   display: inline-block;
@@ -180,25 +185,23 @@
 }
 
 // /* 키프레임 이름 = 애니메이션 이름 */
-@keyframes fadein {
-  from {
-    opacity: 1;
-    transform: translateY(-188px);
-    height: 0px;
-  }
-  to {
-    transform: translateY(-88px); // 클릭시 내려오는것
-  }
-}
-@keyframes fadeout {
-  from {
-    opacity: 1;
-    transform: translateY(-88px);
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-    height: 0px;
-    transform: translateY(-188px);
-  }
-}
+// @keyframes fadein {
+//   from {
+//     opacity: 1;
+//     transform: translateY(-100px);
+//   }
+//   to {
+//     transform: translateY(0px); // 클릭시 내려오는것
+//   }
+// }
+// @keyframes fadeout {
+//   from {
+//     opacity: 1;
+//     transform: translateY(0px);
+//   }
+//   to {
+//     visibility: hidden;
+//     opacity: 0;
+//     transform: translateY(-100px);
+//   }
+// }

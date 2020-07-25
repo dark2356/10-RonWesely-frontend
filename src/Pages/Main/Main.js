@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Footer from "../../Component/Footer/Footer";
+import Nav from "./Nav/Nav";
 import "./Main.scss";
 
 class Main extends Component {
   render() {
     return (
       <div className="Main">
+        <Nav />
         <div>
           <div className="subscription-main">
             <h2 className="subscription-main-title">

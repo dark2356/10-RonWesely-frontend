@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MainNav from "../Main/Nav/Nav";
 import Nav from "./Nav/Nav";
 import SetPresent from "./ProductList/SetPresent";
 import SideBar from "../../Component/SideBar";
@@ -9,13 +10,6 @@ class Product extends Component {
     super();
     this.state = {
       sideBarValid: false,
-      list: [
-        {
-          title: "선물세트",
-          titleSub: "면도용품+기프트 카드",
-          price: "8,900원",
-        },
-      ],
     };
   }
   changeSideBarValidInSideBar = (check) => {
@@ -34,6 +28,7 @@ class Product extends Component {
     const position = { position: "fixed" };
     return (
       <>
+        <MainNav />
         <SideBar
           sideBarValid={this.state.sideBarValid}
           changeSideBarValid={this.changeSideBarValidInSideBar}
@@ -43,14 +38,7 @@ class Product extends Component {
             this.state.sideBarValid ? "Product-fix" : "Product-relative"
           }
         >
-          {this.state.list.map((data) => (
-            <Nav
-              key={data.title}
-              data={data}
-              changeSideBarValid={this.changeSideBarValidInProduct}
-            />
-          ))}
-
+          <Nav changeSideBarValid={this.changeSideBarValidInProduct} />
           <SetPresent />
         </div>
         {this.state.sideBarValid ? <div className="Product-none"></div> : null}
