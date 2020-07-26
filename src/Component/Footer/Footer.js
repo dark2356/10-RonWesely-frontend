@@ -29,7 +29,7 @@ class Footer extends Component {
             <div className="pc-flex">
               <div className="pc-footer">
                 <div className="info">
-                  <p className="info-bold"> 주식회사 론와이즐리컴퍼니</p>
+                  <p className="info-bold"> 주식회사 론위즐리컴퍼니</p>
                   <p className="info-text">
                     서울특별시 성동구 왕십리로 125, 8층(성수동1가, KD타워),
                     대표자: 김동욱

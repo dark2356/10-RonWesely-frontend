@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
 import ProductNav from "./ProductNav";
 import "./Nav.scss";
 
@@ -11,6 +12,13 @@ class Nav extends Component {
     };
   }
 
+  goToBulkPage = () => {
+    this.props.history.push("/bulkpackagesale");
+  };
+
+  goToMain = () => {
+    this.props.history.push("/main");
+  };
   handleProductNav = () => {
     console.log("??");
     this.setState({
@@ -19,21 +27,24 @@ class Nav extends Component {
   };
 
   render() {
+    const { goToMain, goToBulkPage, handleProductNav } = this;
     return (
       <div className="Nav">
         <div className="header-wrapper-subscription-bg-active">
           <div className="scroll-wrapper-inserted">
             <header className="padding">
               <div className="contain-wrapper">
-                <h1 className="wesely-logo">
-                  <span role="link" tabIndex="0" className="home-link">
-                    <img
-                      alt="wesely-logo"
-                      className="logo"
-                      src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
-                    />
-                  </span>
-                </h1>
+                <Link to="/main">
+                  <h1 className="wesely-logo">
+                    <span role="link" tabIndex="0" className="home-link">
+                      <img
+                        alt="wesely-logo"
+                        className="logo"
+                        src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
+                      />
+                    </span>
+                  </h1>
+                </Link>
                 <nav className="inserted">
                   <div className="contents-wrapper">
                     <ul role="menubar" className="contents">
@@ -43,6 +54,7 @@ class Nav extends Component {
                             role="link"
                             tabIndex="0"
                             className="link-active"
+                            onClick={goToMain}
                           >
                             시작하기
                           </span>
@@ -53,7 +65,7 @@ class Nav extends Component {
                           <span role="menuitem" tabIndex="0" className="link">
                             <span
                               className="arrow-wrapper"
-                              onClick={this.handleProductNav}
+                              onClick={handleProductNav}
                             >
                               상품보기
                             </span>
@@ -66,6 +78,7 @@ class Nav extends Component {
                             role="link"
                             tabIndex="0"
                             className="link-limited-purchase"
+                            onClick={goToBulkPage}
                           >
                             대용량 팩 할인
                             <span className="limited-purchase">최대 20%</span>
@@ -116,4 +129,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

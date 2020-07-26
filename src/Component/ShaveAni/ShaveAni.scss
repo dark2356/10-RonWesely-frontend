@@ -1,0 +1,33 @@
+.ShaveAni {
+  .wise-consumption {
+    .wise-consumption-padding {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 120px 0;
+
+      .bubble-wrapper {
+        width: 420px;
+        height: 420px;
+        margin: 0 130px 0 0;
+
+        .line {
+          width: 50%;
+          height: 4px;
+          background-color: #0055b8;
+          margin: 0 auto;
+          border-radius: 50px;
+        }
+
+        .bubble-image {
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position-x: center;
+          background-image: url(https://wiselyshave-cdn.s3.amazonaws.com/assets/images/bubblePrice/bubble_500x500.png);
+          height: 100%;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
