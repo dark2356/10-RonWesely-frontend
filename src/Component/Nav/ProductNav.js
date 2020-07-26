@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import "./Nav.scss";
+import "./ProductNav.scss";
 
-class Nav extends Component {
+class ProductNav extends Component {
   state = {
     Info: {
       name: "",
       description: "",
       price: "",
     },
+  };
+
+  changeSideBarValidInProduct = () => {
+    this.props.changeSideBarValidInProduct();
   };
 
   componentDidMount() {
@@ -25,8 +29,6 @@ class Nav extends Component {
   }
 
   render() {
-    const { changeSideBarValid } = this.props;
-
     return (
       <div className="ProductNav">
         <div className="inner">
@@ -44,7 +46,9 @@ class Nav extends Component {
               {this.state.Info.price}
             </div>
             <div className="buy-button">
-              <button onClick={changeSideBarValid}>구매하기</button>
+              <button onClick={this.changeSideBarValidInProduct}>
+                구매하기
+              </button>
             </div>
           </div>
         </div>
@@ -53,4 +57,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default ProductNav;

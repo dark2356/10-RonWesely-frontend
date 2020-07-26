@@ -1,15 +1,14 @@
 $test_border1: 1px solid black;
 $base-height: 900px;
 .SideBar {
-  //height: $base-height; 보류
   width: 30%;
   background-color: white;
-  position: absolute;
+  position: fixed;
   z-index: 101;
   left: 40%;
 
-  position: relative;
-  transform: translate(100%, 0%);
+  position: fixed;
+  transform: translate(100%, -10%);
 
   animation-name: slidein;
   animation-duration: 0.5s;
@@ -52,7 +51,7 @@ $base-height: 900px;
   left: 50%;
 
   position: fixed;
-  transform: translate(200%, 0%);
+  transform: translate(200%, -10%);
 
   animation-name: slideout;
   animation-duration: 0.5s;
@@ -63,20 +62,20 @@ $base-height: 900px;
 
 @keyframes slidein {
   from {
-    transform: translate(200%, 0%);
+    transform: translate(200%, -10%);
   }
 
   to {
-    transform: translate(100%, 0%);
+    transform: translate(100%, -10%);
   }
 }
 
 @keyframes slideout {
   from {
-    transform: translate(100%, 0%);
+    transform: translate(100%, -10%);
   }
 
   to {
-    transform: translate(200%, 0%);
+    transform: translate(200%, -10%);
   }
 }

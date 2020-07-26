@@ -1,18 +1,20 @@
 import React, { Component } from "react";
+import NavSub from "./NavSub";
 import ProductNav from "./ProductNav";
 import "./Nav.scss";
 
 class Nav extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subNavActive: false,
+      sideBarValid: false,
+      changeSideBarValidInProduct: this.props.changeSideBarValidInProduct,
     };
   }
 
   handleProductNav = () => {
-    console.log("??");
     this.setState({
       subNavActive: !this.state.subNavActive,
     });
@@ -106,11 +108,13 @@ class Nav extends Component {
             </header>
           </div>
         </div>
-        <div
-          className={this.state.subNavActive === true ? "visible" : "unvisible"}
-        >
-          <ProductNav />
+        <div className="NabSubContainer">
+          {/* {this.state.subNavActive ? <NavSub /> : null} */}
         </div>
+
+        <ProductNav
+          changeSideBarValidInProduct={this.props.changeSideBarValidInProduct}
+        />
       </div>
     );
   }

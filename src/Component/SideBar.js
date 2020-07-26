@@ -38,7 +38,6 @@ class SideBar extends Component {
       <>
         <div className={sideBarValid ? "SideBar" : "SideBar-none"}>
           {/* <div className="SideBar"> */}
-          {/* top : 공통된 내용이므로 고정 */}
           <div className="top">
             <img
               src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/arrow/backArrow.svg"

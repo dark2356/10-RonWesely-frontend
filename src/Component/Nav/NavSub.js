@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import "./ProductNav.scss";
+import "./NavSub.scss";
 
-class ProductNav extends Component {
+class NavSub extends Component {
   render() {
+    const { subNavActive } = this.props;
+    console.log();
     return (
-      <div className="ProductNav">
+      <div className="NavSub">
         <ul role="menu" className="product-sub-nav">
           <div className="sub-nav-wrapper">
             <li role="menuitem" className="sub-nav-item">
@@ -64,4 +66,4 @@ class ProductNav extends Component {
   }
 }
 
-export default ProductNav;
+export default NavSub;

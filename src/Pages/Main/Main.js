@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Footer from "../../Component/Footer/Footer";
-import Nav from "./Nav/Nav";
+import Nav from "../../Component/Nav/Nav";
 import "./Main.scss";
 
 class Main extends Component {
