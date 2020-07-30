@@ -48,7 +48,7 @@ class BulkPackageSale extends Component {
     const { product } = this.state;
     return (
       <div className="BulkPackageSale">
-        <Nav />
+        <Nav BulkPackageSale={true} productNum={6} />
 
         <div className="bulk-purchase-main">
           <div className="bulk-purchase-text-wrapper">

@@ -131,6 +131,7 @@ class Nav extends Component {
 
         {this.props.productNum && (
           <ProductNav
+            BulkPackageSale={this.props.BulkPackageSale}
             productNum={this.props.productNum}
             changeSideBarValidInProduct={this.props.changeSideBarValidInProduct}
           />

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "./ProductNav.scss";
 
 class ProductNav extends Component {
-  // 데이터 테스트 중
   state = {
     Info: [
       {
@@ -91,65 +91,79 @@ class ProductNav extends Component {
   }
 
   changeSideBarValidInProduct = () => {
-    this.props.changeSideBarValidInProduct();
+    if (this.props.productNum === 6) {
+      this.props.history.push("/payment");
+    }
+    //this.props.changeSideBarValidInProduct();
   };
 
   render() {
-    console.log(this.state.Info.length);
+    console.log(this.state.Info);
+    const { Info, activeDrop, showProduct, unshowProduct } = this.state;
     return (
       <div className="ProductNav">
         <div className="inner">
           <div className="left">
-            <div className="product-name">
-              {this.state.Info.length === 1 ? (
-                <div>
-                  {this.state.Info[0].product_name}
-                  <span>({this.state.Info[0].product_description})</span>
-                </div>
-              ) : (
-                <>
-                  <div
-                    className="product-origin"
-                    onClick={() =>
-                      this.setState({
-                        activeDrop: !this.state.activeDrop,
-                      })
-                    }
-                  >
-                    {this.state.showProduct.product_name}
-                    <span>({this.state.showProduct.product_size})</span>
+            {this.props.BulkPackageSale ? (
+              <div className="product-name">대량구매</div>
+            ) : (
+              <div className="product-name">
+                {Info.length === 1 ? (
+                  <div>
+                    {Info[0].product_name}
+                    <span>({Info[0].product_description})</span>
                   </div>
-                  <div
-                    className={
-                      this.state.activeDrop ? "drop-show" : "drop-unshow"
-                    }
-                    onClick={() =>
-                      this.setState({
-                        ...this.state.Info,
-                        showProduct: this.state.unshowProduct,
-                        unshowProduct: this.state.showProduct,
-                        activeDrop: !this.state.activeDrop,
-                      })
-                    }
-                  >
-                    {this.state.unshowProduct.product_name}
-                    <span>({this.state.unshowProduct.product_size})</span>
-                  </div>
-                </>
-              )}
-            </div>
+                ) : (
+                  <>
+                    <div
+                      className="product-origin"
+                      onClick={() =>
+                        this.setState({
+                          activeDrop: !this.state.activeDrop,
+                        })
+                      }
+                    >
+                      {showProduct.product_name}
+                      <span>({showProduct.product_size})</span>
+                    </div>
+                    <div
+                      className={activeDrop ? "drop-show" : "drop-unshow"}
+                      onClick={() =>
+                        this.setState({
+                          ...this.state.Info,
+                          showProduct: this.state.unshowProduct,
+                          unshowProduct: this.state.showProduct,
+                          activeDrop: !this.state.activeDrop,
+                        })
+                      }
+                    >
+                      {unshowProduct.product_name}
+                      <span>({unshowProduct.product_size})</span>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
           </div>
           <div className="right">
-            <div className="detail">상세 정보</div>
-            <div className="review">후기(377)</div>
-            <div className="price">
-              {this.state.Info.length === 1 ? (
-                <>{this.state.Info[0].product_price}</>
-              ) : (
-                <>{this.state.showProduct.product_price}</>
-              )}
-              원
+            <div className="detail">
+              {Info[0].product_name === "" ? "" : "상세 정보"}
             </div>
+            <div className="review">
+              {Info[0].product_name === "" ? "" : "후기(377)"}
+            </div>
+
+            {Info[0].product_name !== "" && (
+              <div className="price">
+                {Info.length === 1 ? (
+                  <>{Info[0].product_price}</>
+                ) : (
+                  <>{showProduct.product_price}</>
+                )}
+                원
+              </div>
+            )}
+
             <div className="buy-button">
               <button onClick={this.changeSideBarValidInProduct}>
                 구매하기
@@ -162,4 +176,4 @@ class ProductNav extends Component {
   }
 }
 
-export default ProductNav;
+export default withRouter(ProductNav);

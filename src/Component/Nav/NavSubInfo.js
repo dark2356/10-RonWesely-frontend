@@ -38,4 +38,8 @@ export default navSubInfo = {
       index: 5,
     },
   ],
+  bulkPackage: {
+    alt: "선물세트",
+    index: 6,
+  },
 };
