@@ -7,60 +7,100 @@ class SideBar extends Component {
   state = {
     changeSideBarValid: this.props.changeSideBarValid,
 
-    category: [
-      { index: 0, title: "면도기 색상 선택" },
-      { index: 1, title: "장바구니" },
+    categorySideBar: [
+      { index: 0, category: "선물세트", title: "면도기 색상 선택", sideBar: 0 },
+      {
+        index: 1,
+        category: "면도기세트",
+        title: "면도기 색상 선택",
+        sideBar: 0,
+      },
+      { index: 2, category: "리필 면도날", title: "장바구니", sideBar: 4 },
+      { index: 3, category: "쉐이빙 젤", title: "장바구니", sideBar: 4 },
+      { index: 4, category: "애프터쉐이브", title: "장바구니", sideBar: 4 },
     ],
-
-    nowCateIndex: 1,
   };
 
-  handleCancelSideBar = () => {
+  handleCancelSideBar = (nowCatecory) => {
+    const newCate = this.state.categorySideBar.map((data) => {
+      if (nowCatecory.index === data.index) {
+        if ((data.index === 0 || data.index === 1) && data.sideBar === 4) {
+          return { index: data.index, title: "면도기 색상 선택", sideBar: 0 };
+        } else {
+          console.log(data);
+          return data;
+        }
+      } else {
+        console.log(data);
+        return data;
+      }
+    });
+    this.setState({
+      categorySideBar: newCate,
+    });
+
     this.state.changeSideBarValid(this.props.sideBarValid);
-    this.setState({ nowCateIndex: 0 });
   };
 
-  handleChangeColor = (color) => {
+  handleChangeSideBar = (sideBar, index) => {
+    const newCate = this.state.categorySideBar.map((data) => {
+      if (index === data.index) {
+        if ((data.index === 0 || data.index === 1) && data.sideBar === 0) {
+          return { index: data.index, title: "장바구니", sideBar: 4 };
+        }
+      } else {
+        return data;
+      }
+    });
+
     this.setState({
-      colorNow: color,
+      categorySideBar: newCate,
     });
   };
 
-  handleChangeSideBar = (index) => {
-    this.setState({
-      nowCateIndex: index + 1,
-    });
+  setSideBarComponent = (nowCatecory) => {
+    console.log(nowCatecory.sideBar);
+    switch (nowCatecory.sideBar) {
+      case 0:
+      case 1:
+        return (
+          <SelectShaveColor
+            index={nowCatecory.sideBar}
+            handleChangeColor={this.handleChangeColor}
+            handleChangeSideBar={() =>
+              this.handleChangeSideBar(nowCatecory.sideBar, nowCatecory.index)
+            }
+          />
+        );
+      case 3:
+      case 4:
+        return <SelectBasket />;
+
+      default:
+        return <SelectShaveColor />;
+    }
+  };
+
+  setSideBarIndex = (index) => {
+    this.setState({ SideBarIndex: index });
   };
 
   render() {
-    const { sideBarValid } = this.props;
-    const { category, nowCateIndex } = this.state;
+    const { sideBarValid, productIndex } = this.props;
+    const { categorySideBar } = this.state;
 
-    const nowCatecory = nowCateIndex ? category[nowCateIndex] : category[0];
+    const nowCatecory = categorySideBar[parseInt(productIndex) - 1];
 
     return (
       <div className={sideBarValid ? "SideBar" : "SideBar-none"}>
-        {/* <div className="SideBar"> 주기적으로 테스트가 필요하므로 주석 처리*/}
         <div className="top">
           <img
             src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/arrow/backArrow.svg"
-            onClick={this.handleCancelSideBar}
+            onClick={() => this.handleCancelSideBar(nowCatecory)}
           />
           <p>{nowCatecory.title}</p>
         </div>
-
-        <div className="center">
-          {/* 면도기 색상 선택 컴포넌트 */}
-          {/* {this.state.nowCateIndex === 0 && (
-              <SelectShaveColor
-                index={this.state.nowCateIndex}
-                handleChangeSideBar={this.handleChangeSideBar}
-              />
-            )} */}
-
-          {/* 장바구니 컴포넌트 */}
-          <SelectBasket />
-        </div>
+        <div className="center">{this.setSideBarComponent(nowCatecory)}</div>
       </div>
     );
   }

@@ -28,44 +28,8 @@ class ProductNav extends Component {
     activeDrop: false,
   };
 
-  // state = {
-  //   Info: [
-  //     {
-  //       name: "",
-  //       description: "",
-  //       price: "",
-  //       product_name: "",
-  //       product_size: "",
-  //       size_description: "",
-  //       product_price: "",
-  //     },
-  //     {
-  //       name: "",
-  //       description: "",
-  //       price: "",
-  //       product_name: "",
-  //       product_size: "",
-  //       size_description: "",
-  //       product_price: "",
-  //     },
-  //   ],
-  //   showProduct: {
-  //     index: 0,
-  //     product_name: "여행용",
-  //     product_size: "30ml",
-  //     product_price: "3,900",
-  //   },
-  //   unshowProduct: {
-  //     index: 1,
-  //     product_name: "스탠다드",
-  //     product_size: "60ml",
-  //     product_price: "6,500",
-  //   },
-  //   activeDrop: false,
-  // };
-
   componentDidMount() {
-    fetch("http://10.58.7.78:8000/product/" + this.props.productNum)
+    fetch("http://10.58.4.52:8000/product/" + this.props.productNum)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -96,7 +60,7 @@ class ProductNav extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.productNum !== this.props.productNum) {
-      fetch("http://10.58.7.78:8000/product/" + this.props.productNum)
+      fetch("http://10.58.4.52:8000/product/" + this.props.productNum)
         .then((res) => res.json())
         .then((res) => {
           console.log(res);

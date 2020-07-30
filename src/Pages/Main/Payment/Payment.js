@@ -47,7 +47,7 @@ class Payment extends Component {
 
   componentDidMount() {
     // let token = localStorage.getItem("access-token");
-    fetch("http://10.58.7.78:8000/order/cart-list", {
+    fetch("http://10.58.4.52:8000/order/cart-list", {
       method: "GET",
       headers: {
         Authorization:

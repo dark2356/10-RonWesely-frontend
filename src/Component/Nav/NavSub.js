@@ -12,10 +12,9 @@ class NavSub extends Component {
 
   handleProductComponent = (category) => {
     console.log(category.index);
+    this.props.handleSubNav();
     this.props.handleProductNav(category.index);
   };
-
-  U;
 
   render() {
     const { subNavActive, data } = this.props;

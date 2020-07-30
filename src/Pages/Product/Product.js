@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import SetPresent from "./ProductList/SetPresent";
 import SideBar from "../../Component/SideBar/SideBar";
-
+import BulkPackageSale from "../BulkPackageSale/BulkPackageSale";
+import Shavinggel from "./ProductList/Shavinggel";
 import "./Product.scss";
 
 class Product extends Component {
@@ -27,31 +28,42 @@ class Product extends Component {
     });
   };
 
-  componentDidUpdate(Preprops) {
+  componentDidUpdate(Preprops, prevState) {
+    console.log("컴포넌트 업데이트 :" + Preprops.match.params.id);
     if (this.props.match.params.id !== Preprops.match.params.id) {
-      console.log("componentDidUpdate");
-      this.setState({ index: this.props.match.params.id });
+      this.setState({
+        index: this.props.match.params.id,
+      });
     }
   }
+
   setComponent = (index) => {
+    console.log(index);
     switch (index) {
-      case 1:
+      case "1":
         return <SetPresent />;
+      case "2":
+        return <BulkPackageSale />;
+      case "3":
+        return <BulkPackageSale />;
+      case "4":
+        return <Shavinggel />;
+      case "5":
+        return <BulkPackageSale />;
       default:
         return <SetPresent />;
     }
   };
   render() {
-    console.log("render");
-    const index = this.state.index;
+    const { index, sideBarValid, component } = this.state;
     console.log(index);
 
     return (
       <>
-        <div className={this.state.sideBarValid ? "Product-fixed" : ""}></div>
+        <div className={sideBarValid ? "Product-fixed" : ""}></div>
         <SideBar
           productIndex={index}
-          sideBarValid={this.state.sideBarValid}
+          sideBarValid={sideBarValid}
           changeSideBarValid={this.changeSideBarValidInSideBar}
         />
 
@@ -60,8 +72,8 @@ class Product extends Component {
           productNum={index}
         />
 
-        <div className={this.state.sideBarValid ? "Product-none" : "Product"}>
-          {this.setComponent(this.state.index)}
+        <div className={sideBarValid ? "Product-none" : "Product"}>
+          {this.setComponent(index)}
         </div>
       </>
     );

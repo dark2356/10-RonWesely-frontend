@@ -15,7 +15,7 @@ class Signup extends Component {
   }
 
   handlelogin = (e) => {
-    fetch("http://10.58.6.255:8000/users/SignUp", {
+    fetch("http://10.58.4.52:8000/users/SignUp", {
       method: "POST",
       body: JSON.stringify({
         userid: this.state.userid,

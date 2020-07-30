@@ -16,10 +16,13 @@ class Nav extends Component {
   }
 
   handleProductNav = (index) => {
+    this.props.history.push(`/product/${index}`);
+  };
+
+  handleSubNav = () => {
     this.setState({
       subNavActive: !this.state.subNavActive,
     });
-    this.props.history.push(`/product/${index}`);
   };
 
   render() {
@@ -57,7 +60,7 @@ class Nav extends Component {
                           <span role="menuitem" tabIndex="0" className="link">
                             <span
                               className="arrow-wrapper"
-                              onClick={this.handleProductNav}
+                              onClick={() => this.handleSubNav()}
                             >
                               상품보기
                             </span>
@@ -118,7 +121,10 @@ class Nav extends Component {
             }
           >
             {this.state.subNavActive ? (
-              <NavSub handleProductNav={this.handleProductNav} />
+              <NavSub
+                handleProductNav={this.handleProductNav}
+                handleSubNav={this.handleSubNav}
+              />
             ) : null}
           </div>
         </div>
