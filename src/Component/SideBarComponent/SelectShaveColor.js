@@ -7,27 +7,41 @@ class SelectShaveColor extends Component {
     colorList: [
       {
         color_id: 0,
-        back_groundColor: "",
+        color_eng_name: "",
         color_name: "",
         color_url: "",
       },
     ],
 
     colorNow: "",
+    colorNowId: 0,
+    colorNowsrc: "",
   };
 
-  handleSelect = (index) => {
-    this.props.handleChangeSideBar(index);
+  handleSelect = (sideBarIndex, prodIndex, colorNowId) => {
+    console.log(prodIndex + 1, 1);
+    console.log("장바구니 api 연결 : ");
+    fetch("http://10.58.4.52:8000/order/color-select", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.DbCRvyvj5ai7zxm8dwLI_zb-CNNI5jvEA9j43cWkovc",
+      },
+      body: JSON.stringify({ product_id: prodIndex + 1, color_id: "1" }),
+    });
+
+    this.props.handleChangeSideBar(sideBarIndex);
   };
 
-  handleChangeColor = (color) => {
+  handleChangeColor = (data) => {
     this.setState({
-      colorNow: color,
+      colorNow: data.color_name,
+      colorNowId: data.color_id,
+      colorNowsrc: data.color_url,
     });
   };
 
   componentDidMount() {
-    console.log("컬러 선택 시작 : ", this.props.index);
     fetch("http://10.58.4.52:8000/product/color-detail", {
       method: "GET",
       headers: {
@@ -39,6 +53,7 @@ class SelectShaveColor extends Component {
       .then((res) => {
         this.setState({
           colorList: res.Info,
+          colorNowsrc: res.Info[0].color_url,
         });
       });
   }
@@ -47,8 +62,8 @@ class SelectShaveColor extends Component {
     const { index } = this.props;
     console.log(this.props);
 
-    const { colorList } = this.state;
-    console.log(colorList);
+    const { colorList, colorNowId, colorNowsrc } = this.state;
+    console.log(colorList, colorNowId);
 
     const color =
       this.state.colorNow === ""
@@ -59,22 +74,22 @@ class SelectShaveColor extends Component {
       <div className="SelectShaveColor">
         <PageTop />
         <div className="shaver-img">
-          <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/razor_lie_navy.png" />
+          <img src={colorNowsrc} />
         </div>
         <div className="product-color">
           {colorList.map((data) => (
-            <div key={data.backgroundColor}>
+            <div key={data.color_eng_name}>
               <div
                 className="select-btn"
-                onClick={() => this.handleChangeColor(data.color_name)}
+                onClick={() => this.handleChangeColor(data)}
               >
                 <div
                   className={
-                    color === data.color_name ? data.backgroundColor : null
+                    colorNowId === data.color_id ? data.color_eng_name : null
                   }
                 >
                   <div className="select-btn-color">
-                    <div className={data.backgroundColor} />
+                    <div className={data.color_eng_name} />
                   </div>
                 </div>
               </div>
@@ -85,7 +100,9 @@ class SelectShaveColor extends Component {
           <p>{color}</p>
         </div>
         <div className="btn-container">
-          <button onClick={() => this.handleSelect(5)}>선택하기</button>
+          <button onClick={() => this.handleSelect(5, index, colorNowId)}>
+            선택하기
+          </button>
         </div>
       </div>
     );

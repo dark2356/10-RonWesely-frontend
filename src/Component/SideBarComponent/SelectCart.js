@@ -3,7 +3,7 @@ import "./SelectCart.scss";
 
 class SelectCart extends Component {
   render() {
-    const { cart } = this.props;
+    const { cart, handleonChangeCout } = this.props;
     return (
       <div className="SelectCart">
         <div className="selected-item-box-wrapper">
@@ -16,12 +16,7 @@ class SelectCart extends Component {
           </div>
           <div className="item-info-box">
             <div className="item-info-left">
-              <div className="item-info-title">
-                {`${cart.item_name}-`}
-                <span className="item-info-quantity">
-                  {`${cart.quantity}개`}
-                </span>
-              </div>
+              <div className="item-info-title">{`${cart.item_name}`}</div>
               <div className="item-info-description">
                 <span className="item-info-option-value-navy">
                   {cart.color}
@@ -29,11 +24,11 @@ class SelectCart extends Component {
                 <span className="inserted">{cart.description}</span>{" "}
               </div>
               <div className="item-info-count">
-                <button>+</button>
+                <button onClick={() => handleonChangeCout("-", cart)}>-</button>
                 <div className="count-value">
-                  <p>1</p>
+                  <p>{cart.quantity}</p>
                 </div>
-                <button>-</button>
+                <button onClick={() => handleonChangeCout("+", cart)}>+</button>
               </div>
             </div>
             <div className="item-info-price">

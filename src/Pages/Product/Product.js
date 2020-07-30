@@ -5,6 +5,7 @@ import SideBar from "../../Component/SideBar/SideBar";
 import BulkPackageSale from "../BulkPackageSale/BulkPackageSale";
 import Shavinggel from "./ProductList/Shavinggel";
 import "./Product.scss";
+import PageTop from "../PageTop/PageTop";
 
 class Product extends Component {
   constructor() {
@@ -39,19 +40,19 @@ class Product extends Component {
 
   setComponent = (index) => {
     console.log(index);
-    switch (index) {
-      case "1":
+    switch (parseInt(index)) {
+      case 1:
         return <SetPresent />;
-      case "2":
-        return <BulkPackageSale />;
-      case "3":
-        return <BulkPackageSale />;
-      case "4":
+      case 2:
+        return null;
+      case 3:
+        return null;
+      case 4:
         return <Shavinggel />;
-      case "5":
+      case 5:
         return <BulkPackageSale />;
       default:
-        return <SetPresent />;
+        return null;
     }
   };
   render() {
@@ -60,6 +61,7 @@ class Product extends Component {
 
     return (
       <>
+        <PageTop />
         <div className={sideBarValid ? "Product-fixed" : ""}></div>
         <SideBar
           productIndex={index}

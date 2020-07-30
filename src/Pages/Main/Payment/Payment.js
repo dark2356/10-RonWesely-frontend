@@ -46,7 +46,7 @@ class Payment extends Component {
   };
 
   componentDidMount() {
-    // let token = localStorage.getItem("access-token");
+    let token = localStorage.getItem("access-token");
     fetch("http://10.58.4.52:8000/order/cart-list", {
       method: "GET",
       headers: {
@@ -63,19 +63,19 @@ class Payment extends Component {
       });
   }
 
-  // donePayment = () => {
-  //   fetch("http://10.58.4.120:8000/user/SignIn", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       id: this.state.id,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       localStorage.setItem("access_token", res.access_token);
-  //       this.props.history.push("/mypage");
-  //     });
-  // };
+  donePayment = () => {
+    fetch("http://10.58.4.120:8000/user/SignIn", {
+      method: "POST",
+      body: JSON.stringify({
+        id: this.state.id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        localStorage.setItem("access_token", res.access_token);
+        this.props.history.push("/mypage");
+      });
+  };
 
   paymentLight = () => {
     console.log("index number:", this.state.index);

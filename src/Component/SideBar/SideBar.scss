@@ -3,6 +3,7 @@ $base-height: 900px;
 
 .SideBar {
   width: 30%;
+  height: $base-height;
   left: 40%;
   z-index: 101;
   position: absolute;
@@ -35,6 +36,7 @@ $base-height: 900px;
 
   .center {
     overflow: hidden;
+    background-color: white;
   }
 }
 
