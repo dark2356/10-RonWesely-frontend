@@ -30,7 +30,7 @@ class Signup extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        localStorage.setItem("access_token", res.token);
+        // localStorage.setItem("access_token", res.token);
         this.props.history.push("/login");
       });
   };

@@ -11,19 +11,30 @@ class Deliverylist extends Component {
     },
     totalAmount: [],
   };
+
   componentDidMount() {
-    fetch(`${config.IP}/order/cart-list`, {
+    fetch(`${config.IP}/order/checkout`, {
       method: "GET",
       headers: {
-        Authorization: config.GET,
+        Authorization: localStorage.getItem("access_token"),
       },
     })
       .then((res) => res.json())
       .then((res) => {
-        this.setState({
-          cart: res,
-          totalAmount: res.Info.pop(),
-        });
+        console.log(res);
+        if (res.Info.length === 0) {
+          this.setState({
+            cart: {
+              Info: [],
+            },
+            totalAmount: [],
+          });
+        } else {
+          this.setState({
+            cart: res,
+            totalAmount: res.Info.pop(),
+          });
+        }
       });
   }
   render() {
@@ -41,7 +52,7 @@ class Deliverylist extends Component {
               <div className="title-text">배송지정보</div>
               <button className="address-info-btn">배송조회</button>
             </div>
-            <Addressinfo />
+            <Addressinfo name={this.props.name} />
             <div className="order-list">
               <div className="order-info-title">
                 <div className="title-left">주문상품정보</div>
@@ -55,7 +66,7 @@ class Deliverylist extends Component {
                   <Deliverycartbox
                     item_name={item.item_name}
                     color={item.color}
-                    price={item.price}
+                    price={item.item_price}
                     total={item.totalprice}
                     description={item.description}
                     quantity={item.quantity}
@@ -65,9 +76,11 @@ class Deliverylist extends Component {
                 <div className="selected-item-price-div">
                   <div className="selected-item-price-box">
                     <div className="selected-item-price-text">주문금액</div>
-                    <div className="selected-item-price-price">{`${Number(
-                      totalPrice
-                    ).toLocaleString()}원`}</div>
+                    <div className="selected-item-price-price">
+                      {!totalPrice
+                        ? "0원"
+                        : `${Number(totalPrice).toLocaleString()}원`}
+                    </div>
                   </div>
                   <div className="selected-item-delivery-fee-box">
                     <div className="selected-item-delivery-fee-text">
@@ -80,7 +93,9 @@ class Deliverylist extends Component {
                       최종 결제 금액
                     </div>
                     <div className="selected-item-total-price-price">
-                      {`${Number(totalPrice).toLocaleString()}원`}
+                      {!totalPrice
+                        ? "0원"
+                        : `${Number(totalPrice).toLocaleString()}원`}
                     </div>
                   </div>
                 </div>

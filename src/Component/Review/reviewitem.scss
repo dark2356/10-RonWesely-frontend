@@ -1,0 +1,26 @@
+.review-item-box {
+  width: 946px;
+  height: 136px;
+  padding: 20px 0;
+  border-bottom: 1px solid #efefef;
+  .star {
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+  }
+  .review-contents {
+    font-size: 16px;
+    margin-top: 20px;
+    color: #3a3a3a;
+  }
+  .review-contets-flexbox {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #979797;
+    margin-top: 14px;
+  }
+  .review-date {
+    margin-left: 0 auto;
+  }
+}

@@ -10,11 +10,11 @@ import "./Payment.scss";
 class Payment extends Component {
   state = {
     active: true,
+    activeTab: "",
     cart: {
       Info: [],
     },
     totalAmount: {},
-    activeTab: "",
   };
 
   componentDidMount() {
@@ -22,15 +22,24 @@ class Payment extends Component {
     fetch(`${config.IP}/order/cart-list`, {
       method: "GET",
       headers: {
-        Authorization: config.GET,
+        Authorization: localStorage.getItem("access_token"),
       },
     })
       .then((res) => res.json())
       .then((res) => {
-        this.setState({
-          cart: res,
-          totalAmount: res.Info.pop(),
-        });
+        if (res.Info.length === 0) {
+          this.setState({
+            cart: {
+              Info: [],
+            },
+            totalAmount: [],
+          });
+        } else {
+          this.setState({
+            cart: res,
+            totalAmount: res.Info.pop(),
+          });
+        }
       });
   }
 
@@ -40,7 +49,7 @@ class Payment extends Component {
     fetch(`${config.IP}/order/checkout`, {
       method: "POST",
       headers: {
-        Authorization: config.POST,
+        Authorization: localStorage.getItem("access_token"),
       },
       body: JSON.stringify({
         order_id: totalAmount.order_id,
@@ -48,8 +57,10 @@ class Payment extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        localStorage.setItem("access_token", res.access_token);
-        this.props.history.push("/mypage");
+        console.log(res);
+        // localStorage.setItem("access_token", res.access_token);
+        alert("결제가 완료 됐습니다.");
+        this.props.history.push("/main");
       });
   };
 
@@ -70,8 +81,6 @@ class Payment extends Component {
   };
 
   render() {
-    // const { active, cart, totalAmount } = this.state;
-    // let totalPrice = totalAmount.total_price;
     const {
       active,
       cart,
@@ -142,7 +151,7 @@ class Payment extends Component {
                   key={idx}
                   item_name={item.item_name}
                   color={item.color}
-                  price={item.price}
+                  price={item.item_price}
                   description={item.description}
                   quantity={item.quantity}
                   image_url={item.image_url}

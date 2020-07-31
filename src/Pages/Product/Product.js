@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import SetPresent from "./ProductList/SetPresent";
+import Review from "../../Component/Review/review";
 import SideBar from "../../Component/SideBar/SideBar";
 import Shavinggel from "./ProductList/Shavinggel";
 import "./Product.scss";
@@ -47,7 +48,7 @@ class Product extends Component {
       case 4:
         return <Shavinggel />;
       case 5:
-        return null;
+        return <Shavinggel />;
       default:
         return null;
     }
@@ -72,6 +73,7 @@ class Product extends Component {
 
         <div className={sideBarValid ? "Product-none" : "Product"}>
           {this.setComponent(index)}
+          <Review />
         </div>
       </>
     );

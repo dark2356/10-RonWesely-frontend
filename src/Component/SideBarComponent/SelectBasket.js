@@ -50,10 +50,11 @@ class SelectBasket extends Component {
   }
 
   componentDidMount() {
+    console.log(localStorage.getItem("access_token"));
     fetch(`${config.IP}/order/cart-list`, {
       method: "GET",
       headers: {
-        Authorization: `${config.BASKET_GET}`,
+        Authorization: localStorage.getItem("access_token"),
       },
     })
       .then((res) => res.json())
@@ -63,7 +64,7 @@ class SelectBasket extends Component {
           totalAmount: res.Info.pop(),
         });
       })
-      .catch((e) => alert("API 에러 발생했습니다."));
+      .catch((e) => console.log("aa"));
   }
 
   handlePurchase = () => {
@@ -155,7 +156,9 @@ class SelectBasket extends Component {
           <div className="selected-item-delivery-fee-box">
             <div className="selected-item-delivery-fee-text">할인 금액</div>
             <div className="selected-item-delivery-fee-price">
-              {`-${Number(totalAmount.discount_price).toLocaleString()}원`}
+              {totalAmount
+                ? `-${Number(totalAmount.discount_price).toLocaleString()}원`
+                : 0}
             </div>
           </div>
           <div className="selected-item-total-price-box">

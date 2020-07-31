@@ -7,7 +7,7 @@ class AddressInfo extends Component {
       <div className="address-info-content">
         <div className="info-content">
           <div className="info-left info-left-name">받는사람</div>
-          <div className="info-right">이윤식</div>
+          <div className="info-right">{this.props.name}</div>
         </div>
         <div className="info-content">
           <div className="info-left info-left-phone">연락처</div>

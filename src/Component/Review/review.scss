@@ -1,0 +1,142 @@
+.show-review-wrapper {
+  max-width: 988px;
+  margin: 0 auto;
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bold {
+    font-weight: 400;
+  }
+
+  .bold-light {
+    font-weight: 300;
+  }
+
+  .show-review-header {
+    height: 414px;
+    width: 980px;
+
+    .show-review-face-img {
+      display: block;
+      margin: 40px auto 0;
+    }
+
+    .review-title-text {
+      margin-top: 33px;
+      font-size: 20px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .raiting-box {
+      height: 180px;
+      margin: 25px 0 60px 0;
+
+      .star-raiting {
+        width: 475px;
+        height: 127px;
+        text-align: center;
+        flex-direction: column;
+        border-right: 1px solid #efefef;
+
+        .rating-star-box {
+          margin: 6px 0 15px 0;
+        }
+
+        .raiting-big {
+          font-size: 40px;
+          font-weight: 400;
+          color: #0056b8;
+        }
+
+        .graph-rating-item-star {
+          display: flex;
+          flex-direction: column;
+          padding: 5px;
+        }
+
+        .raiting-short {
+          font-size: 30px;
+          font-weight: 300;
+        }
+      }
+
+      .point-bar {
+        height: 100px;
+        width: 10px;
+        display: inline-block;
+        position: relative;
+        background-color: rgb(241, 241, 241);
+        margin: 0 28px;
+
+        .point-bar-front {
+          width: 10px;
+          min-height: 10px;
+          display: inline-block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          overflow: hidden;
+          border-radius: 5px;
+          background-color: #2270d3;
+        }
+
+        .point-heigt-77 {
+          height: 76.9412%;
+        }
+
+        .point-heigt-15 {
+          height: 15%;
+        }
+
+        .point-heigt-5 {
+          height: 5%;
+        }
+
+        .point-heigt-2 {
+          height: 2%;
+        }
+
+        .point-heigt-1 {
+          height: 0.941176%;
+        }
+      }
+
+      .graph-rating {
+        width: 475px;
+        text-align: center;
+
+        .star-img {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+        }
+
+        .percent-text {
+          font-size: 20px;
+          color: #cecece;
+          margin-bottom: 3px;
+        }
+
+        .blue-color {
+          color: #1e60bd;
+        }
+
+        .point-big-text {
+          font-size: 22px;
+          color: #979797;
+          margin-top: 3px;
+        }
+
+        .point-text {
+          font-size: 12px;
+          color: #979797;
+        }
+      }
+    }
+  }
+}

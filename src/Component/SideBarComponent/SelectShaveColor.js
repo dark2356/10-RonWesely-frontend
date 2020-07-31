@@ -23,7 +23,7 @@ class SelectShaveColor extends Component {
     fetch(`${config.IP}/order/color-select`, {
       method: "POST",
       headers: {
-        Authorization: `${config.SELECT_GET}`,
+        Authorization: localStorage.getItem("access_token"),
       },
       body: JSON.stringify({ product_id: prodIndex + 1, color_id: "1" }),
     });
@@ -43,8 +43,7 @@ class SelectShaveColor extends Component {
     fetch(`${config.IP}/product/color-detail`, {
       method: "GET",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.kQ_f8bwKpIAuexiG9yCcdMc1SY_uKfcJCwxiRpI6GWU",
+        Authorization: "",
       },
     })
       .then((res) => res.json())

@@ -88,14 +88,36 @@ class ProductNav extends Component {
   }
 
   changeSideBarValidInProduct = () => {
-    alert(localStorage.getItem("access_token"));
-    if (localStorage.getItem("access_token") === null) {
-      alert("로그인 페이지로 이동하겠습니다.");
-      this.props.history.push("/login");
-      return;
-    }
+    // if (localStorage.getItem("access_token") === null) {
+    //   alert("로그인 페이지로 이동하겠습니다.");
+    //   this.props.history.push("/login");
+    //   return;
+    // }
     if (this.props.productNum === 6) {
-      this.props.history.push("/payment");
+      fetch(`${config.IP}/order/bulk-order`, {
+        method: "POST",
+        headers: {
+          Authorization: localStorage.getItem("access_token"),
+        },
+        body: JSON.stringify({
+          Info: [
+            {
+              product_id: "3",
+              quantity: "1",
+            },
+            {
+              product_id: "4",
+              quantity: "1",
+            },
+          ],
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) =>
+          res.Info.length > 0
+            ? this.props.history.push("/payment")
+            : alert("에러가 발생했습니다.")
+        );
     }
     this.props.changeSideBarValidInProduct();
   };

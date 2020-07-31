@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Nav from "../../Main/Nav/Nav";
+import Nav from "../../../Component/Nav/Nav";
 import Deliverylist from "../../../Component/Mypage/Deliverylist";
 import Subscription from "../../../Component/Mypage/Subscription";
 import Footer from "../../../Component/Footer/Footer";
-import config from "../../../";
+import config from "../../../config";
 import "./Mypage.scss";
 
 class Mypage extends Component {
@@ -16,11 +16,10 @@ class Mypage extends Component {
     };
   }
   componentDidMount() {
-    let token = localStorage.getItem("access_token");
     fetch(`${config.IP}/user/MyPage`, {
       method: "GET",
       headers: {
-        Authorization: token,
+        Authorization: localStorage.getItem("access_token"),
       },
     })
       .then((res) => res.json())

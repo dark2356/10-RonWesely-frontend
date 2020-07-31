@@ -8,7 +8,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
 
-    console.log(localStorage.getItem("access_token"));
+    console.log("nav token >>> ", localStorage.getItem("access_token"));
     this.state = {
       subNavActive: false,
       sideBarValid: false,
@@ -33,7 +33,6 @@ class Nav extends Component {
       this.props.history.push("/bulkpackagesale");
     } else if (id === 3) {
       if (localStorage.getItem("access_token") !== null) {
-        localStorage.removeItem("access_token");
         this.props.history.push("/login");
         return;
       } else {
