@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import SetPresent from "./ProductList/SetPresent";
 import SideBar from "../../Component/SideBar/SideBar";
-import BulkPackageSale from "../BulkPackageSale/BulkPackageSale";
 import Shavinggel from "./ProductList/Shavinggel";
 import "./Product.scss";
 import PageTop from "../PageTop/PageTop";
@@ -48,7 +47,7 @@ class Product extends Component {
       case 4:
         return <Shavinggel />;
       case 5:
-        return <BulkPackageSale />;
+        return null;
       default:
         return null;
     }
