@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import NavSub from "./NavSub";
 import ProductNav from "./ProductNav";
 import "./Nav.scss";
@@ -25,7 +25,18 @@ class Nav extends Component {
     });
   };
 
+  goToMain = (id) => {
+    if (id === 1) {
+      this.props.history.push("/main");
+    } else if (id === 2) {
+      this.props.history.push("/bulkpackagesale");
+    } else if (id === 3) {
+      this.props.history.push("/login");
+    }
+  };
+
   render() {
+    const { goToMain, handleProductNav } = this;
     return (
       <div className="Nav">
         <div className="header-wrapper-subscription-bg-active">
@@ -35,6 +46,7 @@ class Nav extends Component {
                 <h1 className="wesely-logo">
                   <span role="link" tabIndex="0" className="home-link">
                     <img
+                      onClick={() => goToMain(1)}
                       alt="wesely-logo"
                       className="logo"
                       src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
@@ -50,8 +62,9 @@ class Nav extends Component {
                             role="link"
                             tabIndex="0"
                             className="link-active"
+                            onClick={() => goToMain(1)}
                           >
-                            <Link to="/main">시작하기</Link>
+                            시작하기
                           </span>
                         </h2>
                       </li>
@@ -73,8 +86,9 @@ class Nav extends Component {
                             role="link"
                             tabIndex="0"
                             className="link-limited-purchase"
+                            onClick={() => goToMain(2)}
                           >
-                            <Link to="/bulkpackageSale">대용량 팩 할인</Link>
+                            대용량 팩 할인
                             <span className="limited-purchase">최대 20%</span>
                           </span>
                         </h2>
@@ -99,8 +113,12 @@ class Nav extends Component {
                   </div>
                 </nav>
                 <div className="user-info-wrapper">
-                  <span role="link" className="login">
-                    <Link to="/login">로그인</Link>
+                  <span
+                    role="link"
+                    className="login"
+                    onClick={() => goToMain(3)}
+                  >
+                    로그인
                   </span>
                   <div className="basket-wrapper">
                     <span className="basket">장바구니</span>
@@ -120,12 +138,12 @@ class Nav extends Component {
                 : "NabSubContainer none"
             }
           >
-            {this.state.subNavActive ? (
+            {this.state.subNavActive && (
               <NavSub
-                handleProductNav={this.handleProductNav}
+                handleProductNav={handleProductNav}
                 handleSubNav={this.handleSubNav}
               />
-            ) : null}
+            )}
           </div>
         </div>
 

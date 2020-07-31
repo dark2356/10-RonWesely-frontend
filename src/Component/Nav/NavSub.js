@@ -11,7 +11,6 @@ class NavSub extends Component {
   handleInfoState = () => {};
 
   handleProductComponent = (category) => {
-    console.log(category.index);
     this.props.handleProductNav(category.index);
     this.props.handleSubNav();
   };

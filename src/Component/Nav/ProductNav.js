@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import config from "../../config";
 import "./ProductNav.scss";
 
 class ProductNav extends Component {
@@ -29,10 +30,9 @@ class ProductNav extends Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.4.52:8000/product/" + this.props.productNum)
+    fetch(`${config.IP}/product/${this.props.productNum}`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         if (res.Info.length > 1) {
           this.setState({
             Info: res.Info,
@@ -50,7 +50,6 @@ class ProductNav extends Component {
             },
           });
         } else {
-          console.log("실행1");
           this.setState({
             Info: res.Info,
           });
@@ -60,10 +59,9 @@ class ProductNav extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.productNum !== this.props.productNum) {
-      fetch("http://10.58.4.52:8000/product/" + this.props.productNum)
+      fetch(`${config.IP}/product/${this.props.productNum}`)
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
           if (res.Info.length > 1) {
             this.setState({
               Info: res.Info,
@@ -81,7 +79,6 @@ class ProductNav extends Component {
               },
             });
           } else {
-            console.log("실행2" + this.props.productNum);
             this.setState({
               Info: res.Info,
             });
@@ -94,11 +91,10 @@ class ProductNav extends Component {
     if (this.props.productNum === 6) {
       this.props.history.push("/payment");
     }
-    //this.props.changeSideBarValidInProduct();
+    this.props.changeSideBarValidInProduct();
   };
 
   render() {
-    console.log(this.state.Info);
     const { Info, activeDrop, showProduct, unshowProduct } = this.state;
     return (
       <div className="ProductNav">

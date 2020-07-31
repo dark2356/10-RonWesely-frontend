@@ -30,7 +30,6 @@ class Product extends Component {
   };
 
   componentDidUpdate(Preprops, prevState) {
-    console.log("컴포넌트 업데이트 :" + Preprops.match.params.id);
     if (this.props.match.params.id !== Preprops.match.params.id) {
       this.setState({
         index: this.props.match.params.id,
@@ -39,7 +38,6 @@ class Product extends Component {
   }
 
   setComponent = (index) => {
-    console.log(index);
     switch (parseInt(index)) {
       case 1:
         return <SetPresent />;
@@ -57,7 +55,6 @@ class Product extends Component {
   };
   render() {
     const { index, sideBarValid, component } = this.state;
-    console.log(index);
 
     return (
       <>

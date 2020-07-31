@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import config from "../../config";
 import SelectCart from "./SelectCart";
 import PageTop from "../../Pages/PageTop/PageTop";
 
@@ -49,30 +50,20 @@ class SelectBasket extends Component {
   }
 
   componentDidMount() {
-    console.log("실행");
-    sessionStorage.setItem(
-      "access_tokken",
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.DbCRvyvj5ai7zxm8dwLI_zb-CNNI5jvEA9j43cWkovc"
-    );
-
-    const token = sessionStorage.getItem("access_tokken");
-
-    console.log(token);
-
-    fetch("http://10.58.4.52:8000/order/cart-list", {
+    fetch(`${config.IP}/order/cart-list`, {
       method: "GET",
       headers: {
-        Authorization: token,
+        Authorization: `${config.BASKET_GET}`,
       },
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         this.setState({
           cartList: res.Info,
           totalAmount: res.Info.pop(),
         });
-      });
+      })
+      .catch((e) => alert("API 에러 발생했습니다."));
   }
 
   handlePurchase = () => {
@@ -80,7 +71,6 @@ class SelectBasket extends Component {
   };
 
   handleonChangeCout = (calMethod, changeCart) => {
-    console.log(changeCart);
     const { cartList } = this.state;
 
     const newCartList = cartList.map((cart) => {
@@ -91,7 +81,11 @@ class SelectBasket extends Component {
         let cartObj = {};
         switch (calMethod) {
           case "+":
-            cartObj = { ...cart, quantity: cart.quantity + 1 };
+            cartObj = {
+              ...cart,
+              quantity: cart.quantity + 1,
+            };
+
             return cartObj;
 
           case "-":
@@ -114,16 +108,34 @@ class SelectBasket extends Component {
     });
   };
 
+  componentDidUpdate(prevProps, prepState) {
+    if (prepState.cartList !== this.state.cartList) {
+      const { cartList, totalAmount } = this.state;
+      let totalAmountVal = 0;
+      let discardVal = 0;
+      for (let i = 0; i < cartList.length; i++) {
+        let price = parseInt(cartList[i].item_price) * cartList[i].quantity;
+        totalAmountVal = totalAmountVal + price;
+        discardVal = discardVal + parseInt(cartList[i].discount_price);
+      }
+
+      totalAmountVal = totalAmountVal - discardVal;
+
+      this.setState({
+        totalAmount: {
+          order_id: totalAmount.order_id,
+          shipping_price: totalAmount.shipping_price,
+          discount_price: discardVal,
+          total_price: totalAmountVal,
+        },
+      });
+    }
+  }
+
   render() {
     const { cartList, totalAmount } = this.state;
     const { total_price } = totalAmount;
 
-    console.log(
-      cartList,
-      totalAmount.order_id,
-      totalAmount.shipping_price,
-      totalAmount.discount_price
-    );
     return (
       <div className="SelectBasket">
         <PageTop />
@@ -136,15 +148,15 @@ class SelectBasket extends Component {
           </div>
         ))}
         <div className="selected-item-price-div">
-          <div className="selected-item-price-box">
-            <div className="selected-item-price-text">주문금액</div>
-            <div className="selected-item-price-price">{`${Number(
-              total_price
-            ).toLocaleString()}원`}</div>
-          </div>
           <div className="selected-item-delivery-fee-box">
             <div className="selected-item-delivery-fee-text">배송비</div>
             <div className="selected-item-delivery-fee-price">무료</div>
+          </div>
+          <div className="selected-item-delivery-fee-box">
+            <div className="selected-item-delivery-fee-text">할인 금액</div>
+            <div className="selected-item-delivery-fee-price">
+              {`-${Number(totalAmount.discount_price).toLocaleString()}원`}
+            </div>
           </div>
           <div className="selected-item-total-price-box">
             <div className="selected-item-total-price-text">최종 결제 금액</div>

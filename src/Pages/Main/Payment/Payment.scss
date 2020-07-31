@@ -31,7 +31,6 @@
       .option-header {
         display: flex;
         justify-content: space-between;
-        padding: unset;
         height: 80px;
         border-bottom: 1px solid #cecece;
 
@@ -82,51 +81,33 @@
           }
         }
 
-        .option-list-box {
-          .option-list {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            padding: 6px 14px;
-            border: 1px solid #cecece;
-            border-radius: 4px;
-            width: 350px;
-            height: 60px;
-            cursor: pointer;
+        .option-list {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          padding: 6px 14px;
+          border: 1px solid #cecece;
+          border-radius: 4px;
+          width: 350px;
+          height: 60px;
+          cursor: pointer;
 
-            .list-img-box {
-              margin-right: 14px;
-              width: 50px;
-            }
-            .option-text {
-              color: #979797;
-              font-weight: 300;
-            }
+          &.active {
+            border: 1px solid #0055b8;
           }
-          // .option-list-light {
-          //   display: flex;
-          //   align-items: center;
-          //   margin-bottom: 8px;
-          //   padding: 6px 14px;
-          //   border: 1px solid #0055b8;
-          //   border-radius: 4px;
-          //   width: 350px;
-          //   height: 60px;
-          //   cursor: pointer;
-
-          //   .list-img-box {
-          //     margin-right: 14px;
-          //     width: 50px;
-          //   }
-          //   .option-text {
-          //     color: #979797;
-          //     font-weight: 300;
-          //   }
-          // }
+          .list-img-box {
+            margin-right: 14px;
+            width: 50px;
+          }
+          .option-text {
+            color: #979797;
+            font-weight: 300;
+          }
         }
 
         .option-bottom {
           margin-top: 16px;
+
           .payment-button {
             display: inline-block;
             outline: none;
@@ -138,19 +119,11 @@
             font-weight: 400;
             font-size: 20px;
             background-color: #cecece;
-          }
-          .payment-button-light {
-            display: inline-block;
-            outline: none;
-            border: 0;
-            border-radius: 4px;
-            width: 100%;
-            height: 60px;
-            color: #fff;
-            font-weight: 400;
-            font-size: 20px;
-            background-color: #0055b8;
-            cursor: pointer;
+
+            &.active {
+              background-color: #0055b8;
+              cursor: pointer;
+            }
           }
         }
       }
@@ -169,65 +142,13 @@
 
       .cart-box {
         width: 425px;
-        padding-top: 55px;
-        padding-right: 10px;
-        padding-bottom: 200px;
+        padding: 55px 10px 200px 0;
 
-        .selected-item-box-wrapper {
-          display: flex;
-          align-items: center;
-          height: 160px;
-          border-bottom: 1px solid #efefef;
-          .item-image-box {
-            margin-left: 8px;
-            margin-right: 24px;
-            height: 120px;
-            .selected-image {
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .item-info-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            .item-info-left {
-              width: 170px;
-              .item-info-title {
-                font-size: 16px;
-                line-height: 130%;
-                letter-spacing: -0.06em;
-                font-weight: 400;
-                color: #3a3a3a;
-                margin-bottom: 4px;
-                .item-info-quantity {
-                  color: #0055b8;
-                }
-              }
-              .item-info-description {
-                font-weight: 300;
-                font-size: 14px;
-                line-height: 130%;
-                color: #979797;
-                .item-info-option-value-navy {
-                  color: #1e314a;
-                }
-              }
-            }
-            .item-info-price {
-              margin-right: 10px;
-              font-weight: 300;
-              line-height: 130%;
-              letter-spacing: -0.06em;
-              color: #979797;
-            }
-          }
-        }
         .selected-item-price-div {
           margin-top: 20px;
           padding: 0 10px;
-          .selected-item-price-box {
+
+          .price-box {
             display: flex;
             justify-content: space-between;
             font-weight: 300;
@@ -236,7 +157,7 @@
             color: #979797;
           }
 
-          .selected-item-delivery-fee-box {
+          .delivery-fee-box {
             display: flex;
             justify-content: space-between;
             margin-top: 6px;
@@ -245,7 +166,8 @@
             letter-spacing: -0.06em;
             color: #979797;
           }
-          .selected-item-total-price-box {
+
+          .total-price-box {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;

@@ -27,11 +27,9 @@ class SideBar extends Component {
         if ((data.index === 0 || data.index === 1) && data.sideBar === 4) {
           return { index: data.index, title: "면도기 색상 선택", sideBar: 0 };
         } else {
-          console.log(data);
           return data;
         }
       } else {
-        console.log(data);
         return data;
       }
     });
@@ -59,7 +57,6 @@ class SideBar extends Component {
   };
 
   setSideBarComponent = (nowCatecory) => {
-    console.log(nowCatecory.sideBar);
     switch (nowCatecory.sideBar) {
       case 0:
       case 1:

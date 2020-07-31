@@ -21,16 +21,14 @@ class BulkPackageWrap extends Component {
             />
 
             <ul className="option-list-wrapper">
-              {list.map((data) => (
-                <div key={data.id}>
-                  <BulkPackageList
-                    key={data.id}
-                    id={id}
-                    index={data.index}
-                    product={data}
-                    handleActive={handleActive}
-                  />
-                </div>
+              {list.map((data, idx) => (
+                <BulkPackageList
+                  key={idx}
+                  id={id}
+                  index={data.index}
+                  product={data}
+                  handleActive={handleActive}
+                />
               ))}
             </ul>
           </div>

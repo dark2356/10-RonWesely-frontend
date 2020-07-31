@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import BulkPackageWrap from "./BulkPackageWrap/BulkPackageWrap";
 import Footer from "../../Component/Footer/Footer";
 import Nav from "../../Component/Nav/Nav";
-import bulkPackageProdut from "./BulkPackageProduct";
+import bulkPackageProduct from "./BulkPackageProduct";
 import "./BulkPackageSale.scss";
 
 class BulkPackageSale extends Component {
@@ -10,7 +10,7 @@ class BulkPackageSale extends Component {
     super();
 
     this.state = {
-      product: bulkPackageProdut.product,
+      product: bulkPackageProduct.product,
     };
   }
 
@@ -44,11 +44,21 @@ class BulkPackageSale extends Component {
     });
   };
 
+  changeSideBarValidInProduct = () => {
+    this.setState({
+      sideBarValid: !this.state.sideBarValid,
+    });
+  };
+
   render() {
     const { product } = this.state;
     return (
       <div className="BulkPackageSale">
-        <Nav BulkPackageSale={true} productNum={6} />
+        <Nav
+          BulkPackageSale={true}
+          productNum={6}
+          changeSideBarValidInProduct={this.changeSideBarValidInProduct}
+        />
 
         <div className="bulk-purchase-main">
           <div className="bulk-purchase-text-wrapper">

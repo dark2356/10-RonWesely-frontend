@@ -6,11 +6,11 @@
   background-size: cover;
   min-height: 1200px;
   padding-top: 50px;
+
   .signup-logo {
-    margin-left: calc(19vw + 192px);
-    margin-top: 18px;
-    margin-bottom: 40px;
+    margin: 18px 0 40px calc(19vw + 192px);
   }
+
   .signup-container {
     height: 900px;
     width: 500px;
@@ -19,6 +19,7 @@
     margin-left: 19vw;
     background-color: white;
   }
+
   .input_header {
     margin-top: 24px;
     margin-bottom: 5px;
@@ -27,31 +28,37 @@
     letter-spacing: -0.04em;
     font-weight: 300;
   }
-  .notice-msg-none {
-    display: none;
-  }
-  .notice-msg-visible {
-    visibility: visible;
+
+  .notice-msg {
     color: red;
   }
+
+  .none {
+    display: none;
+  }
+
   .font-size {
     font-size: 40px;
     font-weight: 300;
   }
+
   .font-size-bold {
+    margin-bottom: 55px;
     font-size: 40px;
     font-weight: 400;
-    margin-bottom: 55px;
   }
+
   .id-container {
     height: 48px;
+    border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+
     .input_id {
       all: unset;
       width: 320px;
     }
+
     .div_checkbox {
       width: 400px;
       height: 148px;
@@ -59,33 +66,39 @@
       flex-wrap: wrap;
     }
   }
+
   .gender-container {
     display: flex;
   }
+
   .gender-male-text {
-    font-size: 20px;
     padding: 5px;
+    font-size: 20px;
   }
+
   .gender-female-text {
-    font-size: 20px;
     padding: 5px;
+    font-size: 20px;
   }
+
   .signup-btn {
     width: 400px;
     height: 60px;
     margin-top: 20px;
-    background-color: #cecece;
     border: none;
+    background-color: #cecece;
     pointer-events: none;
   }
-  .signup-btn-blue {
-    width: 400px;
-    height: 60px;
-    margin-top: 20px;
+
+  .blue {
     background-color: blue;
-    border: none;
     pointer-events: auto;
+
+    :focus {
+      outline: none;
+    }
   }
+
   .signup-btn-text {
     color: white;
     font-size: 20px;

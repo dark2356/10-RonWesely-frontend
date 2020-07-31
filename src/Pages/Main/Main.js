@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Footer from "../../Component/Footer/Footer";
 import Nav from "../../Component/Nav/Nav";
+import PageTop from "../PageTop/PageTop";
 import "./Main.scss";
 
 class Main extends Component {
@@ -9,6 +10,7 @@ class Main extends Component {
       <>
         <Nav />
         <div className="Main">
+          <PageTop />
           <div>
             <div className="subscription-main">
               <h2 className="subscription-main-title">

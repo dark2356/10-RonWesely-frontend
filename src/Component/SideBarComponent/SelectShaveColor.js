@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PageTop from "../../Pages/PageTop/PageTop";
+import config from "../../config";
 import "./SelectShaveColor.scss";
 
 class SelectShaveColor extends Component {
@@ -19,13 +20,10 @@ class SelectShaveColor extends Component {
   };
 
   handleSelect = (sideBarIndex, prodIndex, colorNowId) => {
-    console.log(prodIndex + 1, 1);
-    console.log("장바구니 api 연결 : ");
-    fetch("http://10.58.4.52:8000/order/color-select", {
+    fetch(`${config.IP}/order/color-select`, {
       method: "POST",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.DbCRvyvj5ai7zxm8dwLI_zb-CNNI5jvEA9j43cWkovc",
+        Authorization: `${config.SELECT_GET}`,
       },
       body: JSON.stringify({ product_id: prodIndex + 1, color_id: "1" }),
     });
@@ -42,7 +40,7 @@ class SelectShaveColor extends Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.4.52:8000/product/color-detail", {
+    fetch(`${config.IP}/product/color-detail`, {
       method: "GET",
       headers: {
         Authorization:
@@ -60,10 +58,8 @@ class SelectShaveColor extends Component {
 
   render() {
     const { index } = this.props;
-    console.log(this.props);
 
     const { colorList, colorNowId, colorNowsrc } = this.state;
-    console.log(colorList, colorNowId);
 
     const color =
       this.state.colorNow === ""

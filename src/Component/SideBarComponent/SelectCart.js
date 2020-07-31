@@ -32,7 +32,7 @@ class SelectCart extends Component {
               </div>
             </div>
             <div className="item-info-price">
-              {`${Number(cart.price).toLocaleString()}원`}
+              {`${Number(cart.item_price).toLocaleString()}원`}
             </div>
           </div>
         </div>

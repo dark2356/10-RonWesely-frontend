@@ -1,34 +1,36 @@
 import React, { Component } from "react";
+import PageTop from "../PageTop/PageTop";
+import config from "../../config";
 import "./Signup.scss";
 
 class Signup extends Component {
   constructor() {
     super();
     this.state = {
-      userid: "",
+      email: "",
       password: "",
-      phone_no: "",
+      phone_number: "",
       birthday: "",
       name: "",
-      gender: ["male", "female"],
+      gender_type: ["male", "female"],
     };
   }
 
-  handlelogin = (e) => {
-    fetch("http://10.58.4.52:8000/users/SignUp", {
+  handleSignup = (e) => {
+    fetch(`${config.IP}/user/SignUp`, {
       method: "POST",
       body: JSON.stringify({
-        userid: this.state.userid,
+        email: this.state.email,
         password: this.state.password,
-        phone_no: this.state.phone_no,
+        phone_number: this.state.phone_number,
         birthday: this.state.birthday,
-        gender: this.state.gender,
+        name: this.state.name,
+        gender_type: this.state.gender_type,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("access_token", res.access_token);
+        localStorage.setItem("access_token", res.token);
         this.props.history.push("/login");
       });
   };
@@ -37,45 +39,51 @@ class Signup extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  goToMain = () => {
+    this.props.history.push("/main");
+  };
+
   render() {
+    const { goToMain } = this;
     return (
       <div className="Signup">
+        <PageTop />
         <img
+          onClick={goToMain}
+          alt="logo"
           className="signup-logo"
           src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
         />
         <div className="signup-container">
           <p className="font-size">처음이시군요</p>
           <p className="font-size-bold">가입을 진행합니다.</p>
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <p className="input_header">아이디</p>
             <div className="id-container">
               <input
-                name="userid"
+                name="email"
                 className="input_id"
                 type="text"
                 placeholder="이메일"
                 onChange={this.inputHandler}
               />
-              <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg" />
             </div>
             <p className="input_header">비밀번호</p>
             <div className="id-container">
               <input
                 name="password"
                 className="input_id"
-                type="text"
+                type="password"
                 placeholder="비밀번호(6자이상)"
                 onChange={this.inputHandler}
               />
-              <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg" />
             </div>
             <span
-              class={
+              className={
                 this.state.password.length >= 1 &&
                 this.state.password.length <= 6
-                  ? "notice-msg-visible"
-                  : "notice-msg-none"
+                  ? "notice-msg"
+                  : "none"
               }
             >
               6자리 이상의 비밀번호를 설정해주세요
@@ -83,20 +91,19 @@ class Signup extends Component {
             <p className="input_header">휴대폰번호</p>
             <div className="id-container">
               <input
-                name="phone_no"
+                name="phone_number"
                 className="input_id"
                 type="text"
                 placeholder="휴대폰 번호('-'제외)"
                 onChange={this.inputHandler}
               />
-              <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg" />
             </div>
             <span
-              class={
-                this.state.phone_no.length >= 1 &&
-                this.state.phone_no.length <= 10
-                  ? "notice-msg-visible"
-                  : "notice-msg-none"
+              className={
+                this.state.phone_number.length >= 1 &&
+                this.state.phone_number.length <= 10
+                  ? "notice-msg"
+                  : "none"
               }
             >
               휴대폰 번호를 올바르게 입력해주세요
@@ -110,14 +117,13 @@ class Signup extends Component {
                 placeholder="예: 930422"
                 onChange={this.inputHandler}
               />
-              <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg" />
             </div>
             <span
-              class={
+              className={
                 this.state.birthday.length >= 1 &&
                 this.state.birthday.length <= 5
-                  ? "notice-msg-visible"
-                  : "notice-msg-none"
+                  ? "notice-msg"
+                  : "none"
               }
             >
               생년월일을 올바르게 입력해주세요.
@@ -131,52 +137,48 @@ class Signup extends Component {
                 placeholder="이름"
                 onChange={this.inputHandler}
               />
-              <img src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg" />
             </div>
             <span
-              class={
-                this.state.name.length === 1
-                  ? "notice-msg-visible"
-                  : "notice-msg-none"
-              }
+              className={this.state.name.length === 1 ? "notice-msg" : "none"}
             >
-              나이를 올바르게 입력해주세요.
+              이름를 올바르게 입력해주세요.
             </span>
+
             <p className="input_header">성별</p>
             <div className="gender-container">
-              <div class="gender-male-text">
-                <label for="male">
+              <div className="gender-male-text">
+                <label for="남자">
                   <input
                     type="radio"
-                    name="gender"
+                    name="gender_type"
                     onChange={this.inputHandler}
                     value="male"
-                    checked={this.state.gender["male"]}
+                    checked={this.state.gender_type["male"]}
                   />
-                  남성
+                  남자
                 </label>
               </div>
-              <div class="gender-female-text">
-                <label for="female">
+              <div className="gender-female-text">
+                <label for="여자">
                   <input
                     type="radio"
-                    name="gender"
+                    name="gender_type"
                     onChange={this.inputHandler}
                     value="female"
-                    checked={this.state.gender["female"]}
+                    checked={this.state.gender_type["female"]}
                   />
-                  여성
+                  여자
                 </label>
               </div>
             </div>
             <div>
               <button
-                onClick={this.handlelogin}
+                onClick={this.handleSignup}
                 className={
                   this.state.birthday.length >= 6 &&
-                  this.state.phone_no.length >= 10 &&
+                  this.state.phone_number.length >= 10 &&
                   this.state.password.length >= 5
-                    ? "signup-btn-blue"
+                    ? "signup-btn blue"
                     : "signup-btn"
                 }
               >

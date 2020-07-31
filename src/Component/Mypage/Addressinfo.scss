@@ -1,0 +1,23 @@
+.address-info-content {
+  width: 604px;
+  height: 100%;
+  margin-top: 24px;
+
+  .info-content {
+    display: flex;
+    color: #3a3a3a;
+    margin-top: 24px;
+
+    .info-left-name {
+      margin-right: 68px;
+    }
+
+    .info-left-phone {
+      margin-right: 82px;
+    }
+
+    .info-left-address {
+      margin-right: 96px;
+    }
+  }
+}

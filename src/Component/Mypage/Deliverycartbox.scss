@@ -1,0 +1,96 @@
+.selected-item-box-wrapper {
+  display: flex;
+  align-items: center;
+  height: 160px;
+  border-bottom: 1px solid #efefef;
+
+  .item-image-box {
+    margin-left: 8px;
+    margin-right: 24px;
+    height: 120px;
+
+    .selected-image {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .item-info-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .item-info-left {
+      width: 170px;
+
+      .item-info-title {
+        font-size: 16px;
+        line-height: 130%;
+        letter-spacing: -0.06em;
+        font-weight: 400;
+        color: #3a3a3a;
+        margin-bottom: 4px;
+
+        .item-info-quantity {
+          color: #0055b8;
+        }
+      }
+
+      .item-info-description {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 130%;
+        color: #979797;
+
+        .item-info-option-value-navy {
+          color: #1e314a;
+        }
+      }
+    }
+
+    .item-info-price {
+      margin-right: 10px;
+      font-weight: 300;
+      line-height: 130%;
+      letter-spacing: -0.06em;
+      color: #979797;
+    }
+  }
+}
+
+.selected-item-price-div {
+  margin-top: 20px;
+  padding: 0 10px;
+
+  .selected-item-price-box {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    line-height: 130%;
+    letter-spacing: -0.06em;
+    color: #979797;
+  }
+
+  .selected-item-delivery-fee-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-weight: 300;
+    line-height: 130%;
+    letter-spacing: -0.06em;
+    color: #979797;
+  }
+
+  .selected-item-total-price-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: -0.06em;
+    color: #3a3a3a;
+  }
+}

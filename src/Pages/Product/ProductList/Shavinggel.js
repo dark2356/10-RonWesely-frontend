@@ -7,7 +7,6 @@ class Shavinggel extends Component {
   }
   state;
   render() {
-    console.log(this.state);
     return (
       <div className="Shavinggel">
         <div className="shaving-main-container">
