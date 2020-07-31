@@ -1,16 +1,17 @@
 .Login {
-  height: 100vh;
+  min-height: 1000px;
+  height: 100%;
   background-image: url(/images/Member/login-bg.png);
   background-position: 50%;
   background-size: cover;
 
   .login-logo {
-    margin: 64px 0 40px calc(19vw + 192px);
+    margin: 64px 0 40px calc(0vw + 192px);
   }
 
   .login-container {
     width: 500px;
-    height: 730px;
+    height: 830px;
     margin-left: 19vw;
     box-shadow: 3px;
     background-color: white;
@@ -151,6 +152,7 @@
     .bg-blue {
       background-color: blue;
       pointer-events: auto;
+      cursor: pointer;
     }
 
     .login-btn-text {

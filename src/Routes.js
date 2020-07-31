@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./Pages/Main/Main";
-import Footer from "./Component/Footer/Footer";
-import BulkPackageSale from "./Component/BulkPackageSale/BulkPackageSale";
+
 import Mypage from "./Pages/Member/Mypage/Mypage";
 import Nav from "./Component/Nav/Nav";
 import BulkPackageSale from "./Pages/BulkPackageSale/BulkPackageSale";

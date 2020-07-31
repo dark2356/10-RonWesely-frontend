@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Nav from "../../Main/Nav/Nav";
+import Nav from "../../../Component/Nav/Nav";
 import Deliverylist from "../../../Component/Mypage/Deliverylist";
 import Subscription from "../../../Component/Mypage/Subscription";
 import Footer from "../../../Component/Footer/Footer";
