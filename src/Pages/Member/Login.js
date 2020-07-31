@@ -29,7 +29,7 @@ class Login extends Component {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem("access_token", res.access_token);
-        this.props.history.push("/mypage");
+        this.props.history.push("/");
       });
   };
 

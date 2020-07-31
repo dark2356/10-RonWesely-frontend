@@ -88,6 +88,12 @@ class ProductNav extends Component {
   }
 
   changeSideBarValidInProduct = () => {
+    alert(localStorage.getItem("access_token"));
+    if (localStorage.getItem("access_token") === null) {
+      alert("로그인 페이지로 이동하겠습니다.");
+      this.props.history.push("/login");
+      return;
+    }
     if (this.props.productNum === 6) {
       this.props.history.push("/payment");
     }

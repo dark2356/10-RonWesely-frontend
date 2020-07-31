@@ -15,7 +15,7 @@ class SelectShaveColor extends Component {
     ],
 
     colorNow: "",
-    colorNowId: 0,
+    colorNowId: 1,
     colorNowsrc: "",
   };
 

@@ -8,6 +8,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
 
+    console.log(localStorage.getItem("access_token"));
     this.state = {
       subNavActive: false,
       sideBarValid: false,
@@ -31,7 +32,13 @@ class Nav extends Component {
     } else if (id === 2) {
       this.props.history.push("/bulkpackagesale");
     } else if (id === 3) {
-      this.props.history.push("/login");
+      if (localStorage.getItem("access_token") !== null) {
+        localStorage.removeItem("access_token");
+        this.props.history.push("/login");
+        return;
+      } else {
+        this.props.history.push("/login");
+      }
     }
   };
 
@@ -118,7 +125,9 @@ class Nav extends Component {
                     className="login"
                     onClick={() => goToMain(3)}
                   >
-                    로그인
+                    {localStorage.getItem("access_token") !== null
+                      ? "로그아웃"
+                      : "로그인"}
                   </span>
                   <div className="basket-wrapper">
                     <span className="basket">장바구니</span>
