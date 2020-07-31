@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Footer from "../../Component/Footer/Footer";
+import Review from "../../Component/Review/review";
 import Nav from "../../Component/Nav/Nav";
 import PageTop from "../PageTop/PageTop";
 import "./Main.scss";
@@ -83,7 +83,7 @@ class Main extends Component {
               />
             </div>
           </div>
-          <Footer />
+          <Review />
         </div>
       </>
     );

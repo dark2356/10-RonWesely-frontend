@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import SetPresent from "./ProductList/SetPresent";
+import Review from "../../Component/Review/review";
 import SideBar from "../../Component/SideBar/SideBar";
 
 import "./Product.scss";
@@ -62,6 +63,7 @@ class Product extends Component {
 
         <div className={this.state.sideBarValid ? "Product-none" : "Product"}>
           {this.setComponent(this.state.index)}
+          <Review />
         </div>
       </>
     );
