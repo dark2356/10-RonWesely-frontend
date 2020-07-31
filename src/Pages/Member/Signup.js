@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PageTop from "../PageTop/PageTop";
-import Config from "../../config";
+import config from "../../config";
 import "./Signup.scss";
 
 class Signup extends Component {
@@ -17,7 +17,7 @@ class Signup extends Component {
   }
 
   handleSignup = (e) => {
-    fetch(`${Config.IP}/user/SignUp`, {
+    fetch(`${config.IP}/user/SignUp`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,

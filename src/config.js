@@ -1,5 +1,5 @@
 const config = {
-  IP: "http://10.58.4.52:8000",
+  IP: "http://10.58.1.90:8000",
 
   GET:
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.kQ_f8bwKpIAuexiG9yCcdMc1SY_uKfcJCwxiRpI6GWU",

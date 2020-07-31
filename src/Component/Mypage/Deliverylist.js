@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Deliverycartbox from "./Deliverycartbox";
 import Addressinfo from "./AddressInfo";
-import Config from "../../config";
+import config from "../../config";
 import "./Deliverylist.scss";
 
 class Deliverylist extends Component {
@@ -12,10 +12,10 @@ class Deliverylist extends Component {
     totalAmount: [],
   };
   componentDidMount() {
-    fetch(`${Config.IP}/order/cart-list`, {
+    fetch(`${config.IP}/order/cart-list`, {
       method: "GET",
       headers: {
-        Authorization: Config.GET,
+        Authorization: config.GET,
       },
     })
       .then((res) => res.json())

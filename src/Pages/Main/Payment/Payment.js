@@ -3,26 +3,26 @@ import MethodList from "./MethodList";
 import CartBox from "./CartBox";
 import Footer from "../../../Component/Footer/Footer";
 import PaymentData from "./PaymentData";
-import Config from "../../../config";
+import config from "../../../config";
 import PageTop from "../../PageTop/PageTop";
 import "./Payment.scss";
 
 class Payment extends Component {
   state = {
     active: true,
+    activeTab: "",
     cart: {
       Info: [],
     },
     totalAmount: {},
-    activeTab: "",
   };
 
   componentDidMount() {
     // IP 상시 확인
-    fetch(`${Config.IP}/order/cart-list`, {
+    fetch(`${config.IP}/order/cart-list`, {
       method: "GET",
       headers: {
-        Authorization: Config.GET,
+        Authorization: config.GET,
       },
     })
       .then((res) => res.json())
@@ -37,10 +37,10 @@ class Payment extends Component {
   donePayment = () => {
     const { totalAmount } = this.state;
     //ip 상시 확인
-    fetch(`${Config.IP}/order/checkout`, {
+    fetch(`${config.IP}/order/checkout`, {
       method: "POST",
       headers: {
-        Authorization: Config.POST,
+        Authorization: config.POST,
       },
       body: JSON.stringify({
         order_id: totalAmount.order_id,
@@ -50,8 +50,7 @@ class Payment extends Component {
       .then((res) => {
         localStorage.setItem("access_token", res.access_token);
         alert("결제가 완료 됐습니다.");
-        console.log(totalAmount.order_id);
-        this.props.history.push("/main");
+        this.props.history.push("/mypage");
       });
   };
 
@@ -66,15 +65,12 @@ class Payment extends Component {
   };
 
   listActive = (txt) => {
-    console.log("listActive txt >>> ", txt);
     this.setState({
       activeTab: txt,
     });
   };
 
   render() {
-    // const { active, cart, totalAmount } = this.state;
-    // let totalPrice = totalAmount.total_price;
     const {
       active,
       cart,
